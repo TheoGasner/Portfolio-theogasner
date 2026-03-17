@@ -1,0 +1,86 @@
+[
+  {
+    "id": 1,
+    "name": "Communication Strategy",
+    "description": "Élaboration de stratégies de communication cohérentes et impactantes",
+    "tools": ["Notion", "Figma", "Google Suite"]
+  },
+  {
+    "id": 2,
+    "name": "Digital Marketing",
+    "description": "Campagnes digitales multicanal et gestion des audiences",
+    "tools": ["Meta Ads", "Google Analytics", "Hootsuite", "Canva"]
+  },
+  {
+    "id": 3,
+    "name": "Visual Design",
+    "description": "Création de visuels impactants et cohérents",
+    "tools": ["Figma", "Photoshop", "Illustrator", "Canva"]
+  },
+  {
+    "id": 4,
+    "name": "Branding",
+    "description": "Développement d'identités de marque fortes",
+    "tools": ["Adobe Suite", "Figma"]
+  },
+  {
+    "id": 5,
+    "name": "Web Design",
+    "description": "Design d'interfaces web modernes et ergonomiques",
+    "tools": ["Figma", "React", "Tailwind CSS"]
+  },
+  {
+    "id": 6,
+    "name": "Content Creation",
+    "description": "Production de contenu engageant et stratégique",
+    "tools": ["Premiere Pro", "After Effects", "TikTok", "Instagram"]
+  },
+  {
+    "id": 7,
+    "name": "Web Development",
+    "description": "Développement web et intégration interactive",
+    "tools": ["React", "TypeScript", "Tailwind CSS", "WordPress"]
+  },
+  {
+    "id": 8,
+    "name": "Video Production",
+    "description": "Tournage, montage et production vidéo",
+    "tools": ["Premiere Pro", "After Effects", "DaVinci Resolve"]
+  },
+  {
+    "id": 9,
+    "name": "UX Research",
+    "description": "Recherche utilisateur et optimisation d'expérience",
+    "tools": ["Figma", "UserTesting", "Hotjar", "Surveys"]
+  },
+  {
+    "id": 10,
+    "name": "Motion Design",
+    "description": "Création d'animations et d'effets visuels dynamiques",
+    "tools": ["After Effects", "Figma", "Framer Motion", "Cinema 4D"]
+  },
+  {
+    "id": 11,
+    "name": "Social Media Management",
+    "description": "Gestion de communautés et optimisation des réseaux sociaux",
+    "tools": ["Meta Business Suite", "TikTok Creator", "LinkedIn", "Sprout Social"]
+  },
+  {
+    "id": 12,
+    "name": "Brand Strategy",
+    "description": "Positionnement de marque et architecture commerciale",
+    "tools": ["Notion", "Miro", "Adobe XD", "Figma"]
+  },
+  {
+    "id": 13,
+    "name": "Analytics & Data",
+    "description": "Analyse de données et insights marketing",
+    "tools": ["Google Analytics", "Tableau", "Data Studio", "Excel"]
+  },
+  {
+    "id": 14,
+    "name": "Project Management",
+    "description": "Planification et coordination de projets complexes",
+    "tools": ["Asana", "Monday.com", "Notion", "Trello"]
+  }
+]

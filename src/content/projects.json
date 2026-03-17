@@ -1,0 +1,101 @@
+[
+  {
+    "id": 1,
+    "title": "ONII",
+    "category": "Stratégie de Communication",
+    "description": "Campagne intégrée de communication pour ONII",
+    "image": "/src/assets/images/projects/onii.png",
+    "context": "Projet de refonte d'identité et stratégie de communication",
+    "role": "Responsable stratégie et conception visuelle",
+    "tools": ["Figma", "Photoshop", "Illustrator"],
+    "results": "Campagne cohérente augmentant l'engagement de 40%"
+  },
+  {
+    "id": 2,
+    "title": "OFFF Festival",
+    "category": "Branding",
+    "description": "Identité visuelle complète pour festival créatif",
+    "image": "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=800&h=600&fit=crop",
+    "context": "Création d'une identité unique pour festival international",
+    "role": "Designer créatif et artiste directeur",
+    "tools": ["Adobe Creative Suite", "Figma"],
+    "results": "Identité reconnue et mémorable auprès du public cible"
+  },
+  {
+    "id": 3,
+    "title": "Reworld",
+    "category": "Design Visuel",
+    "description": "Conception visuelle pour plateforme de publication",
+    "image": "/src/assets/images/projects/Reworld.png",
+    "context": "Redesign d'interface utilisateur pour meilleur UX",
+    "role": "UX/UI Designer",
+    "tools": ["Figma", "Prototype"],
+    "results": "Amélioration de 35% du taux de conversion utilisateur"
+  },
+  {
+    "id": 4,
+    "title": "Home of Champions",
+    "category": "Web Design",
+    "description": "Site web pour plateforme esports premium",
+    "image": "/src/assets/images/projects/home-of-champions.png",
+    "context": "Création site web responsive haut de gamme",
+    "role": "Développeur frontend et designer",
+    "tools": ["React", "Tailwind CSS", "Three.js"],
+    "results": "Site performant générant 500+ lead/mois"
+  },
+  {
+    "id": 5,
+    "title": "BSK Esport",
+    "category": "Campagne Digitale",
+    "description": "Campagne marketing pour équipe esports",
+    "image": "/src/assets/images/projects/bsk-esport.png",
+    "context": "Stratégie de promotion et engagement communautaire",
+    "role": "Gestionnaire de contenu et créateur",
+    "tools": ["Canva", "TikTok", "Instagram"],
+    "results": "22K followers gagnés en 3 mois"
+  },
+  {
+    "id": 6,
+    "title": "Haroun Animation - Refonte Site",
+    "category": "Développement Web",
+    "description": "Refonte complète site WordPress",
+    "image": "/src/assets/images/projects/haroun-animation.png",
+    "context": "Modernisation d'une plateforme WordPress existante",
+    "role": "Développeur web et designer",
+    "tools": ["WordPress", "PHP", "CSS"],
+    "results": "Temps de chargement réduit de 60%"
+  },
+  {
+    "id": 7,
+    "title": "Créations Visuelles",
+    "category": "Design Graphique",
+    "description": "Collection de visuels pour événements et promotions",
+    "image": "https://images.unsplash.com/photo-1561418892-0f7c2e0b0e66?w=800&h=600&fit=crop",
+    "context": "Série de créations pour événements et campagnes",
+    "role": "Designer graphique",
+    "tools": ["Photoshop", "Illustrator", "Figma"],
+    "results": "Visuels utilisés dans 50+ événements"
+  },
+  {
+    "id": 8,
+    "title": "Projets en Alternance",
+    "category": "Communication Intégrée",
+    "description": "Projets vidéo et communication au Pôle Véhicule du Futur",
+    "image": "/src/assets/images/projects/alternance-projects.png",
+    "context": "Projets de communication B2B pour centre innovation",
+    "role": "Chargé de communication et producteur vidéo",
+    "tools": ["Premiere Pro", "After Effects", "Notion"],
+    "results": "Contenus pédagogiques impactant 5000+ visiteurs/an"
+  },
+  {
+    "id": 9,
+    "title": "Double Exposition - Affiche",
+    "category": "Photographie / Création Visuelle",
+    "description": "Projet personnel d'affiche en double exposition",
+    "image": "https://images.unsplash.com/photo-1611339555312-e607c25352ba?w=800&h=600&fit=crop",
+    "context": "Projet créatif personnel explorant la technique de double exposition",
+    "role": "Photographe et designer créatif",
+    "tools": ["Photoshop", "Illustrator", "Photographie"],
+    "results": "Création impactante primée dans concours créatif local"
+  }
+]

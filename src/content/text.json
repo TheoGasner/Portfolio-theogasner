@@ -1,0 +1,152 @@
+{
+  "fr": {
+    "header": {
+      "nav": ["Accueil", "À propos", "Projets", "Expérience", "Compétences", "Contact"]
+    },
+    "hero": {
+      "title": "Stratégie de Communication & Expériences Digitales",
+      "subtitle": "Je crée des expériences de communication significatives qui marquent les esprits",
+      "cta": "Explorer mon travail",
+      "scroll": "Défiler pour découvrir"
+    },
+    "about": {
+      "title": "À propos",
+      "imageAlt": "Portrait de Théo Gasner",
+      "bio": "Je m'appelle Théo Gasner, étudiant en troisième année de BUT Métier du Multimédia et de l'Internet (MMI). J'aime créer des visuels, imaginer des concepts et donner vie à des idées à travers le web. Je suis particulièrement attiré par tout ce qui touche à l'univers digital, les jeux vidéo et les nouvelles technologies comme l'IA.\nJ'aime comprendre comment capter l'attention, transmettre un message et créer des expériences qui marquent. Aujourd'hui, je développe mes compétences entre stratégie, création visuelle et projets concrets.",
+      "domains": "Domaines d'expertise & Passions",
+      "skills": ["Stratégie de Communication", "Marketing Digital", "Design Visuel", "Branding", "Web Design", "Création de Contenu"],
+      "interests": ["IA et Technologie", "Jeux Vidéo", "Nature et Aventure", "Sensation Forte", "Sport et Design"],
+      "education": "Formation",
+      "experience": "Expérience",
+      "timeline": [
+        {
+          "date": "2020 - 2022",
+          "title": "Baccalauréat STI2D",
+          "description": "Spécialité SIN - Fondations en numérique et technologie"
+        },
+        {
+          "date": "2022 - 2023",
+          "title": "BUT Informatique",
+          "description": "Année 1 à Belfort - Fondamentals de programmation et développement"
+        },
+        {
+          "date": "2023 - 2024",
+          "title": "BUT MMI",
+          "description": "3ème année à Montbéliard - Métiers du Multimédia et de l'Internet"
+        },
+        {
+          "date": "2023 - 2024",
+          "title": "Contrat Étudiant CDI - Colruyt",
+          "description": "Vendeur et responsable de secteur - Gestion clientèle, merchandising et communication interne"
+        },
+        {
+          "date": "Mars 2023 - Mai 2025",
+          "title": "Stage - Haroun Animation",
+          "description": "Refonte WordPress, gestion réseaux sociaux, création de visuels et UX/UI"
+        },
+        {
+          "date": "Sept 2025 - Août 2026",
+          "title": "Alternance - Pôle Véhicule du Futur",
+          "description": "Chargé de Communication à Etupes - Gestion de projets, contenu pédagogique, vidéos et supports graphiques"
+        }
+      ]
+    },
+    "projects": {
+      "title": "Projets Sélectionnés",
+      "filters": {
+        "all": "Tous",
+        "communication": "Communication",
+        "design": "Design",
+        "web": "Web",
+        "creation": "Création Visuelle"
+      }
+    },
+    "skills": {
+      "title": "Compétences",
+      "description": "Une vision stratégique combinée à une maîtrise créative et technique"
+    },
+    "contact": {
+      "title": "Créons quelque chose de Mémorable",
+      "subtitle": "Prêt à collaborer sur vos prochains projets de communication et design ?",
+      "email": "Envoyer un Email",
+      "linkedin": "LinkedIn",
+      "cv": "Télécharger le CV",
+      "cta": "Prenons contact"
+    }
+  },
+  "en": {
+    "header": {
+      "nav": ["Home", "About", "Projects", "Experience", "Skills", "Contact"]
+    },
+    "hero": {
+      "title": "Strategic Communication & Digital Experiences",
+      "subtitle": "I craft meaningful communication experiences that resonate with audiences",
+      "cta": "Explore my work",
+      "scroll": "Scroll to discover"
+    },
+    "about": {
+      "title": "About",
+      "imageAlt": "Portrait of Théo Gasner",
+      "bio": "I'm Théo Gasner, a creative passionate about communication strategy and digital design. As a student in communication, marketing and digital design, I'm building expertise at the intersection of strategy, impactful visuals, and innovative web experiences. My approach combines strong strategic vision with keen creative sensitivity, always guided by the goal of creating messages that resonate and captivate.",
+      "domains": "Areas of Expertise & Passions",
+      "skills": ["Communication Strategy", "Digital Marketing", "Visual Design", "Branding", "Web Design", "Content Creation"],
+      "interests": ["AI & Technology", "Video Games", "Nature & Adventure", "Thrill Seeking", "Sport & Design"],
+      "education": "Education",
+      "experience": "Experience",
+      "timeline": [
+        {
+          "date": "2020 - 2022",
+          "title": "STI2D Baccalaureate",
+          "description": "Specialization SIN - Foundations in digital and technology"
+        },
+        {
+          "date": "2022 - 2023",
+          "title": "Bachelor's in IT",
+          "description": "Year 1 in Belfort - Fundamentals of programming and development"
+        },
+        {
+          "date": "2023 - 2024",
+          "title": "Bachelor's in MMI",
+          "description": "3rd year in Montbéliard - Multimedia and Internet Professions"
+        },
+        {
+          "date": "2023 - 2024",
+          "title": "Student Work CDI - Colruyt",
+          "description": "Sales Associate and Sector Manager - Customer management, merchandising and internal communication"
+        },
+        {
+          "date": "March 2023 - May 2025",
+          "title": "Internship - Haroun Animation",
+          "description": "WordPress redesign, social media management, visual creation and UX/UI"
+        },
+        {
+          "date": "Sept 2025 - Aug 2026",
+          "title": "Apprenticeship - Future Vehicle Hub",
+          "description": "Communication Manager in Etupes - Project management, educational content, videos and graphics"
+        }
+      ]
+    },
+    "projects": {
+      "title": "Selected Projects",
+      "filters": {
+        "all": "All",
+        "communication": "Communication",
+        "design": "Design",
+        "web": "Web",
+        "creation": "Visual Creation"
+      }
+    },
+    "skills": {
+      "title": "Skills",
+      "description": "Strategic vision combined with creative and technical mastery"
+    },
+    "contact": {
+      "title": "Let's Create Something Meaningful",
+      "subtitle": "Ready to collaborate on your next communication and design projects?",
+      "email": "Send Email",
+      "linkedin": "LinkedIn",
+      "cv": "Download CV",
+      "cta": "Get in touch"
+    }
+  }
+}
