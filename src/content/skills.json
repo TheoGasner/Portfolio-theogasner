@@ -30,12 +30,6 @@
     "tools": ["Figma", "React", "Tailwind CSS"]
   },
   {
-    "id": 6,
-    "name": "Content Creation",
-    "description": "Production de contenu engageant et stratégique",
-    "tools": ["Premiere Pro", "After Effects", "TikTok", "Instagram"]
-  },
-  {
     "id": 7,
     "name": "Web Development",
     "description": "Développement web et intégration interactive",
@@ -58,12 +52,6 @@
     "name": "Motion Design",
     "description": "Création d'animations et d'effets visuels dynamiques",
     "tools": ["After Effects", "Figma", "Framer Motion", "Cinema 4D"]
-  },
-  {
-    "id": 11,
-    "name": "Social Media Management",
-    "description": "Gestion de communautés et optimisation des réseaux sociaux",
-    "tools": ["Meta Business Suite", "TikTok Creator", "LinkedIn", "Sprout Social"]
   },
   {
     "id": 12,
