@@ -3,27 +3,28 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 interface Tool {
   name: string;
-  icon: string; // emoji ou unicode icon
+  displayName: string; // Nom complet affiché au survol
+  icon: string; // chemin vers l'icône SVG
   color: string;
 }
 
 const TOOLS: Tool[] = [
-  { name: 'Figma', icon: '🎨', color: 'from-purple-500 to-pink-500' },
-  { name: 'Photoshop', icon: '🖼️', color: 'from-blue-500 to-cyan-500' },
-  { name: 'Illustrator', icon: '✏️', color: 'from-orange-500 to-red-500' },
-  { name: 'Premiere Pro', icon: '🎬', color: 'from-purple-600 to-blue-600' },
-  { name: 'After Effects', icon: '⚡', color: 'from-pink-500 to-purple-500' },
-  { name: 'React', icon: '⚛️', color: 'from-cyan-400 to-blue-500' },
-  { name: 'TypeScript', icon: '📘', color: 'from-blue-600 to-blue-800' },
-  { name: 'Tailwind CSS', icon: '🌊', color: 'from-cyan-500 to-blue-600' },
-  { name: 'Three.js', icon: '🎭', color: 'from-yellow-400 to-orange-500' },
-  { name: 'WordPress', icon: '🔵', color: 'from-blue-500 to-blue-700' },
-  { name: 'Notion', icon: '📄', color: 'from-gray-600 to-gray-800' },
-  { name: 'Git', icon: '🔀', color: 'from-red-500 to-orange-600' },
-  { name: 'VS Code', icon: '💻', color: 'from-blue-600 to-cyan-500' },
-  { name: 'Adobe Suite', icon: '🎪', color: 'from-red-500 to-pink-600' },
-  { name: 'Slack', icon: '💬', color: 'from-purple-500 to-pink-500' },
-  { name: 'Canva', icon: '🎨', color: 'from-purple-400 to-pink-500' },
+  { name: 'figma', displayName: 'Figma', icon: '/assets/tools/figma.svg', color: 'from-purple-500 to-pink-500' },
+  { name: 'photoshop', displayName: 'Adobe Photoshop', icon: '/assets/tools/photoshop.svg', color: 'from-blue-500 to-cyan-500' },
+  { name: 'illustrator', displayName: 'Adobe Illustrator', icon: '/assets/tools/illustrator.svg', color: 'from-orange-500 to-red-500' },
+  { name: 'react', displayName: 'React', icon: '/assets/tools/react.svg', color: 'from-cyan-400 to-blue-500' },
+  { name: 'nextjs', displayName: 'Next.js', icon: '/assets/tools/nextjs.svg', color: 'from-gray-700 to-black' },
+  { name: 'tailwind', displayName: 'Tailwind CSS', icon: '/assets/tools/tailwind.svg', color: 'from-cyan-500 to-blue-600' },
+  { name: 'wordpress', displayName: 'WordPress', icon: '/assets/tools/wordpress.svg', color: 'from-blue-500 to-blue-700' },
+  { name: 'github', displayName: 'GitHub', icon: '/assets/tools/github.svg', color: 'from-gray-600 to-gray-800' },
+  { name: 'vs-code', displayName: 'VS Code', icon: '/assets/tools/vs-code.svg', color: 'from-blue-600 to-cyan-500' },
+  { name: 'davinci', displayName: 'DaVinci Resolve', icon: '/assets/tools/davinci.svg', color: 'from-orange-500 to-yellow-600' },
+  { name: 'obs', displayName: 'OBS Studio', icon: '/assets/tools/obs.svg', color: 'from-purple-500 to-pink-600' },
+  { name: 'notion', displayName: 'Notion', icon: '/assets/tools/notion.svg', color: 'from-gray-600 to-gray-800' },
+  { name: 'miro', displayName: 'Miro', icon: '/assets/tools/miro.svg', color: 'from-yellow-400 to-orange-500' },
+  { name: 'trello', displayName: 'Trello', icon: '/assets/tools/trello.svg', color: 'from-blue-500 to-cyan-600' },
+  { name: 'canva', displayName: 'Canva', icon: '/assets/tools/canva.svg', color: 'from-purple-400 to-pink-500' },
+  { name: 'chatgpt', displayName: 'ChatGPT', icon: '/assets/tools/chatgpt.svg', color: 'from-green-500 to-teal-600' },
 ];
 
 export function ToolsGrid() {
@@ -43,7 +44,7 @@ export function ToolsGrid() {
           onMouseLeave={() => setHoveredTool(null)}
         >
           <motion.div
-            className={`w-20 h-20 rounded-xl bg-gradient-to-br ${tool.color} flex items-center justify-center text-4xl shadow-lg cursor-pointer`}
+            className={`w-20 h-20 rounded-xl bg-gradient-to-br ${tool.color} flex items-center justify-center text-4xl shadow-lg cursor-pointer overflow-hidden`}
             whileHover={{ scale: 1.1, rotateZ: 5 }}
             animate={{
               boxShadow: hoveredTool === tool.name
@@ -51,10 +52,18 @@ export function ToolsGrid() {
                 : '0 10px 25px rgba(0, 0, 0, 0.3)'
             }}
           >
-            {tool.icon}
+            <img
+              src={tool.icon}
+              alt={tool.displayName}
+              className="w-12 h-12 object-contain"
+              onError={(e) => {
+                // Fallback en cas d'image manquante - affiche emoji
+                (e.target as HTMLImageElement).style.display = 'none';
+              }}
+            />
           </motion.div>
 
-          {/* Tooltip */}
+          {/* Tooltip avec nom complet */}
           <AnimatePresence>
             {hoveredTool === tool.name && (
               <motion.div
@@ -63,7 +72,7 @@ export function ToolsGrid() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 5 }}
               >
-                {tool.name}
+                {tool.displayName}
               </motion.div>
             )}
           </AnimatePresence>
