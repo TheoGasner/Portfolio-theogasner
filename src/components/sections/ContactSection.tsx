@@ -192,7 +192,7 @@ export function ContactSection() {
 
             {/* LinkedIn */}
             <a
-              href="https://linkedin.com/in/theo-gasner"
+              href="https://www.linkedin.com/in/th%C3%A9o-gasner-a6758129a/"
               target="_blank"
               rel="noopener noreferrer"
               className="group block glass-dark p-6 rounded-xl hover:shadow-glow transition-all"

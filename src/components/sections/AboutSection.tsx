@@ -4,6 +4,7 @@ import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import { useLanguage } from '../../hooks/useLanguage';
 import { GlassCard } from '../common';
+import profileImage from '../../assets/images/profile.JPG';
 import texts from '../../content/text.json';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -108,7 +109,7 @@ export function AboutSection() {
               */}
               <div className="relative rounded-3xl overflow-hidden border border-electric-500/50 shadow-2xl shadow-electric-500/20">
                 <img
-                  src={new URL('../../assets/images/profile.JPG', import.meta.url).href}
+                  src={profileImage}
                   alt={t('about.imageAlt') || 'Portrait de Théo Gasner'}
                   className="w-full h-auto object-cover aspect-[3/4] block"
                 />
