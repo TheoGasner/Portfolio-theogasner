@@ -86,10 +86,10 @@ export function HeroSection() {
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 1.2 }}
       >
-        <p className="text-xs md:text-sm text-gray-200 font-light">{t('hero.scroll')}</p>
-        <div className="w-6 h-10 border-2 border-electric-500/40 rounded-full flex justify-center">
+        <p className="text-xs md:text-sm text-white font-light">{t('hero.scroll')}</p>
+        <div className="w-6 h-10 border-2 border-white/60 rounded-full flex justify-center">
           <motion.div
-            className="w-1 h-2 bg-electric-500 rounded-full mt-2"
+            className="w-1 h-2 bg-white rounded-full mt-2"
             animate={{ y: [0, 8, 0] }}
             transition={{ duration: 1.5, repeat: Infinity }}
           />
