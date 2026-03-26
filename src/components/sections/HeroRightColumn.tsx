@@ -25,7 +25,7 @@ export function HeroRightColumn() {
 
   return (
     <motion.div
-      className="flex flex-col items-center justify-center space-y-4 px-6 md:px-0"
+      className="flex flex-col items-center justify-center space-y-2 px-6 md:px-0"
       initial={{ opacity: 0, x: 20 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.8, delay: 0.2 }}
@@ -72,7 +72,7 @@ export function HeroRightColumn() {
       <motion.a
         href="/CV-Theo-Gasner.pdf"
         download
-        className="inline-flex items-center gap-2 px-8 py-3 bg-gradient-to-r from-electric-500 to-neon-600 text-white font-semibold rounded-lg border border-electric-500/50"
+        className="inline-flex items-center gap-2 px-8 py-3 bg-white/10 text-white font-semibold rounded-lg border border-white/30 backdrop-blur-sm hover:bg-white hover:text-dark-950 hover:border-white transition-all duration-300"
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{
