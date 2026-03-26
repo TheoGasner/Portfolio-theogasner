@@ -228,72 +228,124 @@ export function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
               )}
             </motion.div>
 
-            {/* ── Layout éditorial alterné image / texte ── */}
+            {/* ── Layout éditorial varié ── */}
             {(() => {
               const sections = [
-                project.summary   ? { label: L.summary,    text: p.summary }    : null,
-                project.concept   ? { label: L.concept,    text: p.concept }    : null,
-                project.context   ? { label: L.context,    text: p.context }    : null,
-                project.objectives? { label: L.objectives, text: p.objectives } : null,
+                project.summary    ? { label: L.summary,    text: p.summary }    : null,
+                project.concept    ? { label: L.concept,    text: p.concept }    : null,
+                project.context    ? { label: L.context,    text: p.context }    : null,
+                project.objectives ? { label: L.objectives, text: p.objectives } : null,
               ].filter(Boolean) as { label: string; text: string | undefined }[];
 
+              // Patterns de mise en page qui varient : 'left' | 'right' | 'text-only' | 'img-full'
+              const PATTERNS = ['left', 'text-only', 'right', 'img-full'] as const;
+              type Pattern = typeof PATTERNS[number];
+
+              const getPattern = (i: number, total: number): Pattern => {
+                if (total === 1) return 'left';
+                if (total === 2) return i === 0 ? 'left' : 'right';
+                // Pour 3+ sections : varie de façon intéressante
+                const cycle: Pattern[] = ['left', 'text-only', 'right', 'img-full'];
+                return cycle[i % cycle.length];
+              };
+
+              const ImgBlock = ({ src, ratio = '4/3' }: { src: string; ratio?: string }) => (
+                <motion.div
+                  className="relative rounded-2xl overflow-hidden"
+                  style={{
+                    aspectRatio: ratio,
+                    boxShadow: `0 0 0 1px rgba(255,255,255,0.06), 0 20px 50px rgba(0,0,0,0.55), 0 0 50px ${dotColor}18`,
+                  }}
+                  whileHover={{ scale: 1.012 }}
+                  transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
+                >
+                  <img
+                    src={src}
+                    alt=""
+                    className="w-full h-full object-cover"
+                    onError={(e) => {
+                      (e.currentTarget as HTMLImageElement).src =
+                        'https://images.unsplash.com/photo-1461749280684-ddefd3b3e3f7?w=800&h=600&fit=crop';
+                    }}
+                  />
+                  <div
+                    className="absolute inset-x-0 bottom-0 h-20 pointer-events-none"
+                    style={{ background: `linear-gradient(to top, ${dotColor}20, transparent)` }}
+                  />
+                </motion.div>
+              );
+
+              const TextBlock = ({ label, text, side = 'none' }: { label: string; text: string | undefined; side?: string }) => (
+                <div className={side === 'right' ? 'md:pl-4' : side === 'left' ? 'md:pr-4' : ''}>
+                  <span className={`text-[10px] font-bold uppercase tracking-[0.22em] ${colors.text} block mb-3`}>
+                    {label}
+                  </span>
+                  <p className="text-gray-200 leading-[1.75] text-[15px] md:text-base">{text}</p>
+                </div>
+              );
+
               return (
-                <div className="flex flex-col gap-0">
+                <div className="flex flex-col">
                   {sections.map((section, i) => {
-                    const img = gallery[i] ?? gallery[gallery.length - 1];
-                    const isEven = i % 2 === 0;
+                    const pattern = getPattern(i, sections.length);
+                    const img = gallery[i % gallery.length];
+                    const hasBorder = i < sections.length - 1;
+
                     return (
                       <motion.div
                         key={i}
-                        className={`flex flex-col md:flex-row items-center gap-8 py-12 ${
-                          i < sections.length - 1 ? 'border-b border-white/[0.05]' : ''
-                        } ${!isEven ? 'md:flex-row-reverse' : ''}`}
+                        className={hasBorder ? 'pb-12 mb-12 border-b border-white/[0.05]' : 'pb-4'}
                         initial={{ opacity: 0, y: 28 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, margin: '-60px' }}
-                        transition={{ duration: 0.55, delay: 0.05, ease: [0.25, 0.46, 0.45, 0.94] }}
+                        transition={{ duration: 0.55, ease: [0.25, 0.46, 0.45, 0.94] }}
                       >
-                        {/* Image */}
-                        <div className="w-full md:w-[48%] shrink-0">
-                          <motion.div
-                            className="relative rounded-2xl overflow-hidden"
-                            style={{
-                              aspectRatio: '4/3',
-                              boxShadow: `0 0 0 1px rgba(255,255,255,0.06), 0 20px 50px rgba(0,0,0,0.55), 0 0 50px ${dotColor}18`,
-                            }}
-                            whileHover={{ scale: 1.015 }}
-                            transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
-                          >
-                            <img
-                              src={img}
-                              alt=""
-                              className="w-full h-full object-cover"
-                              onError={(e) => {
-                                (e.currentTarget as HTMLImageElement).src =
-                                  'https://images.unsplash.com/photo-1461749280684-ddefd3b3e3f7?w=800&h=600&fit=crop';
-                              }}
-                            />
-                            {/* Subtle color overlay bottom */}
-                            <div
-                              className="absolute inset-x-0 bottom-0 h-20 pointer-events-none"
-                              style={{ background: `linear-gradient(to top, ${dotColor}22, transparent)` }}
-                            />
-                            {/* Index badge */}
-                            <div className="absolute top-3 left-3 w-7 h-7 rounded-full bg-black/60 backdrop-blur-sm border border-white/10 flex items-center justify-center">
-                              <span className="text-[10px] font-black text-white tabular-nums">{String(i + 1).padStart(2, '0')}</span>
+                        {/* Image à gauche + texte à droite */}
+                        {pattern === 'left' && (
+                          <div className="flex flex-col md:flex-row items-center gap-8 md:gap-10">
+                            <div className="w-full md:w-[48%] shrink-0">
+                              <ImgBlock src={img} />
                             </div>
-                          </motion.div>
-                        </div>
+                            <div className="flex-1">
+                              <TextBlock label={section.label} text={section.text} side="right" />
+                            </div>
+                          </div>
+                        )}
 
-                        {/* Text */}
-                        <div className={`flex-1 ${isEven ? 'md:pl-2' : 'md:pr-2'}`}>
-                          <span className={`text-[10px] font-bold uppercase tracking-[0.22em] ${colors.text} block mb-3`}>
-                            {section.label}
-                          </span>
-                          <p className="text-gray-200 leading-[1.75] text-[15px] md:text-base">
-                            {section.text}
-                          </p>
-                        </div>
+                        {/* Texte à gauche + image à droite */}
+                        {pattern === 'right' && (
+                          <div className="flex flex-col md:flex-row-reverse items-center gap-8 md:gap-10">
+                            <div className="w-full md:w-[48%] shrink-0">
+                              <ImgBlock src={img} />
+                            </div>
+                            <div className="flex-1">
+                              <TextBlock label={section.label} text={section.text} side="left" />
+                            </div>
+                          </div>
+                        )}
+
+                        {/* Texte seul — large, sur 2 colonnes */}
+                        {pattern === 'text-only' && (
+                          <div className="grid md:grid-cols-[auto_1fr] gap-6 md:gap-16 items-start">
+                            <span className={`text-[10px] font-bold uppercase tracking-[0.22em] ${colors.text} mt-1 md:w-28 shrink-0`}>
+                              {section.label}
+                            </span>
+                            <p className="text-gray-200 leading-[1.8] text-[16px] md:text-[17px]">{section.text}</p>
+                          </div>
+                        )}
+
+                        {/* Image plein-large (16/9) + léger caption texte dessous */}
+                        {pattern === 'img-full' && (
+                          <div>
+                            <ImgBlock src={img} ratio="16/9" />
+                            <div className="mt-5 grid md:grid-cols-[auto_1fr] gap-4 md:gap-16 items-start">
+                              <span className={`text-[10px] font-bold uppercase tracking-[0.22em] ${colors.text} mt-1 md:w-28 shrink-0`}>
+                                {section.label}
+                              </span>
+                              <p className="text-gray-300 leading-[1.75] text-[15px]">{section.text}</p>
+                            </div>
+                          </div>
+                        )}
                       </motion.div>
                     );
                   })}
