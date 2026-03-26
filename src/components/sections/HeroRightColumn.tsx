@@ -1,13 +1,11 @@
 import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import { useLanguage } from '../../hooks/useLanguage';
-import { useMagneticCursor } from '../../hooks/useMagneticCursor';
 
 export function HeroRightColumn() {
   const { t } = useLanguage();
   const [displayedText, setDisplayedText] = useState('');
   const subtitleText = t('hero.subtitle');
-  const magneticButton = useMagneticCursor();
 
   useEffect(() => {
     let index = 0;
@@ -27,7 +25,7 @@ export function HeroRightColumn() {
 
   return (
     <motion.div
-      className="flex flex-col items-center justify-center space-y-8 px-6 md:px-0"
+      className="flex flex-col items-center justify-center space-y-4 px-6 md:px-0"
       initial={{ opacity: 0, x: 20 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.8, delay: 0.2 }}
@@ -74,8 +72,7 @@ export function HeroRightColumn() {
       <motion.a
         href="/CV-Theo-Gasner.pdf"
         download
-        ref={magneticButton.ref as unknown as React.RefObject<HTMLAnchorElement>}
-        className="inline-flex items-center gap-2 px-8 py-3 bg-gradient-to-r from-electric-500 to-neon-600 text-white font-semibold rounded-lg border border-electric-500/50 mt-4"
+        className="inline-flex items-center gap-2 px-8 py-3 bg-gradient-to-r from-electric-500 to-neon-600 text-white font-semibold rounded-lg border border-electric-500/50"
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{
@@ -83,10 +80,6 @@ export function HeroRightColumn() {
           scale:   { duration: 0.8, delay: 0.9 },
         }}
         whileTap={{ scale: 0.95 }}
-        style={{
-          x: magneticButton.springX,
-          y: magneticButton.springY,
-        }}
       >
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
           <path fillRule="evenodd" d="M12 2.25a.75.75 0 0 1 .75.75v11.69l3.22-3.22a.75.75 0 1 1 1.06 1.06l-4.5 4.5a.75.75 0 0 1-1.06 0l-4.5-4.5a.75.75 0 1 1 1.06-1.06l3.22 3.22V3a.75.75 0 0 1 .75-.75Zm-9 13.5a.75.75 0 0 1 .75.75v2.25a1.5 1.5 0 0 0 1.5 1.5h13.5a1.5 1.5 0 0 0 1.5-1.5V16.5a.75.75 0 0 1 1.5 0v2.25a3 3 0 0 1-3 3H5.25a3 3 0 0 1-3-3V16.5a.75.75 0 0 1 .75-.75Z" clipRule="evenodd" />
