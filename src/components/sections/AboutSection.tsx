@@ -1,7 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import gsap from 'gsap';
-import profileImg from '../../assets/images/profile.JPG';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import { useLanguage } from '../../hooks/useLanguage';
 import { GlassCard } from '../common';
@@ -111,7 +110,7 @@ export function AboutSection() {
               */}
               <div className="relative rounded-3xl overflow-hidden border border-electric-500/50 shadow-2xl shadow-electric-500/20">
                 <img
-                  src={profileImg}
+                  src="/profile.JPG"
                   alt={t('about.imageAlt') || 'Portrait de Théo Gasner'}
                   className="w-full h-auto object-cover aspect-[3/4] block"
                 />
