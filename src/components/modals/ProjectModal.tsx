@@ -1,6 +1,5 @@
 ﻿import { motion, AnimatePresence } from 'framer-motion';
 import { useEffect, useState } from 'react';
-import type { ReactNode } from 'react';
 import { useLanguage } from '../../hooks/useLanguage';
 
 interface ProjectEn {
@@ -70,34 +69,6 @@ const slideVariants = {
   exit:  (d: number) => ({ x: d > 0 ? '-55%' : '55%', opacity: 0, scale: 0.96 }),
 };
 const slideTx = { duration: 0.55, ease: [0.32, 0.72, 0, 1] as [number, number, number, number] };
-
-function SectionBlock({ label, children, delay = 0, accentText = 'text-electric-400' }: {
-  label: string; children: ReactNode; delay?: number; accentText?: string;
-}) {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 14 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ delay, duration: 0.45, ease: [0.25, 0.46, 0.45, 0.94] }}
-      className="mb-9"
-    >
-      <div className="flex items-center gap-3 mb-3">
-        <span className={`text-[10px] font-bold uppercase tracking-[0.22em] ${accentText}`}>{label}</span>
-        <div className="flex-1 h-px bg-gradient-to-r from-white/10 to-transparent" />
-      </div>
-      {children}
-    </motion.div>
-  );
-}
-
-function MetaItem({ label, borderCls, children }: { label: string; borderCls: string; children: ReactNode }) {
-  return (
-    <div className={`pl-4 border-l-2 ${borderCls}`}>
-      <p className="text-[10px] text-gray-400 uppercase tracking-[0.18em] mb-2">{label}</p>
-      {children}
-    </div>
-  );
-}
 
 export function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
   const { language } = useLanguage();
@@ -213,72 +184,122 @@ export function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
 
             <div className="h-px bg-gradient-to-r from-white/10 via-white/[0.04] to-transparent mb-10" />
 
-            {/* Two-column layout */}
-            <div className="grid md:grid-cols-3 gap-10 lg:gap-16 items-start">
-
-              {/* Left: narrative */}
-              <div className="md:col-span-2">
-                {project.summary && (
-                  <SectionBlock label={L.summary} delay={0.22} accentText={colors.text}>
-                    <p className="text-gray-300 leading-relaxed text-[15px]">{p.summary}</p>
-                  </SectionBlock>
-                )}
-                {project.concept && (
-                  <SectionBlock label={L.concept} delay={0.28} accentText={colors.text}>
-                    <p className="text-gray-300 leading-relaxed text-[15px]">{p.concept}</p>
-                  </SectionBlock>
-                )}
-                {project.context && (
-                  <SectionBlock label={L.context} delay={0.34} accentText={colors.text}>
-                    <p className="text-gray-300 leading-relaxed text-[15px]">{p.context}</p>
-                  </SectionBlock>
-                )}
-                {project.objectives && (
-                  <SectionBlock label={L.objectives} delay={0.4} accentText={colors.text}>
-                    <p className="text-gray-300 leading-relaxed text-[15px]">{p.objectives}</p>
-                  </SectionBlock>
-                )}
-              </div>
-
-              {/* Right: sticky meta */}
-              <motion.aside
-                className="md:sticky md:top-[58px] flex flex-col gap-5 p-5 rounded-2xl bg-white/[0.03] border border-white/[0.07]"
-                initial={{ opacity: 0, x: 18 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.28, duration: 0.5 }}
-              >
-                {project.role && (
-                  <MetaItem label={L.role} borderCls="border-electric-500/50">
-                    <p className="text-sm text-white font-medium leading-snug">{p.role}</p>
-                  </MetaItem>
-                )}
-                {project.tools && project.tools.length > 0 && (
-                  <MetaItem label={L.tools} borderCls="border-neon-600/50">
-                    <div className="flex flex-wrap gap-1.5">
-                      {project.tools.map((tool, i) => (
-                        <span key={i} className="px-2 py-0.5 text-xs text-white/70 bg-white/[0.06] border border-white/[0.08] rounded-md">{tool}</span>
-                      ))}
-                    </div>
-                  </MetaItem>
-                )}
-                {project.results && (
-                  <MetaItem label={L.results} borderCls={colors.accent}>
-                    <p className={`text-sm font-semibold leading-snug ${colors.text}`}>{p.results}</p>
-                  </MetaItem>
-                )}
-                {project.link && (
+            {/* ── Meta bar ── */}
+            <motion.div
+              className="flex flex-wrap gap-x-8 gap-y-4 mb-14 p-5 rounded-2xl bg-white/[0.025] border border-white/[0.06]"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2, duration: 0.45 }}
+            >
+              {project.role && (
+                <div className="border-l-2 border-electric-500/50 pl-3">
+                  <p className="text-[9px] text-gray-400 uppercase tracking-[0.18em] mb-1">{L.role}</p>
+                  <p className="text-sm text-white font-medium">{p.role}</p>
+                </div>
+              )}
+              {project.tools && project.tools.length > 0 && (
+                <div className="border-l-2 border-neon-600/50 pl-3 flex-1 min-w-[180px]">
+                  <p className="text-[9px] text-gray-400 uppercase tracking-[0.18em] mb-2">{L.tools}</p>
+                  <div className="flex flex-wrap gap-1.5">
+                    {project.tools.map((tool, i) => (
+                      <span key={i} className="px-2 py-0.5 text-xs text-white/70 bg-white/[0.06] border border-white/[0.08] rounded-md">{tool}</span>
+                    ))}
+                  </div>
+                </div>
+              )}
+              {project.results && (
+                <div className={`border-l-2 ${colors.accent} pl-3`}>
+                  <p className="text-[9px] text-gray-400 uppercase tracking-[0.18em] mb-1">{L.results}</p>
+                  <p className={`text-sm font-bold ${colors.text}`}>{p.results}</p>
+                </div>
+              )}
+              {project.link && (
+                <div className="ml-auto flex items-center">
                   <a
                     href={project.link} target="_blank" rel="noopener noreferrer"
-                    className={`mt-1 flex items-center justify-center gap-2 w-full py-2.5 rounded-xl text-sm font-semibold border transition-all duration-200 hover:opacity-80 ${colors.bg} ${colors.text} ${colors.border}`}
+                    className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold border transition-all duration-200 hover:opacity-80 ${colors.bg} ${colors.text} ${colors.border}`}
                   >
                     <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                       <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                     </svg>
                     {L.visit}
                   </a>
-                )}
-              </motion.aside>
-            </div>
+                </div>
+              )}
+            </motion.div>
+
+            {/* ── Layout éditorial alterné image / texte ── */}
+            {(() => {
+              const sections = [
+                project.summary   ? { label: L.summary,    text: p.summary }    : null,
+                project.concept   ? { label: L.concept,    text: p.concept }    : null,
+                project.context   ? { label: L.context,    text: p.context }    : null,
+                project.objectives? { label: L.objectives, text: p.objectives } : null,
+              ].filter(Boolean) as { label: string; text: string | undefined }[];
+
+              return (
+                <div className="flex flex-col gap-0">
+                  {sections.map((section, i) => {
+                    const img = gallery[i] ?? gallery[gallery.length - 1];
+                    const isEven = i % 2 === 0;
+                    return (
+                      <motion.div
+                        key={i}
+                        className={`flex flex-col md:flex-row items-center gap-8 py-12 ${
+                          i < sections.length - 1 ? 'border-b border-white/[0.05]' : ''
+                        } ${!isEven ? 'md:flex-row-reverse' : ''}`}
+                        initial={{ opacity: 0, y: 28 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, margin: '-60px' }}
+                        transition={{ duration: 0.55, delay: 0.05, ease: [0.25, 0.46, 0.45, 0.94] }}
+                      >
+                        {/* Image */}
+                        <div className="w-full md:w-[48%] shrink-0">
+                          <motion.div
+                            className="relative rounded-2xl overflow-hidden"
+                            style={{
+                              aspectRatio: '4/3',
+                              boxShadow: `0 0 0 1px rgba(255,255,255,0.06), 0 20px 50px rgba(0,0,0,0.55), 0 0 50px ${dotColor}18`,
+                            }}
+                            whileHover={{ scale: 1.015 }}
+                            transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
+                          >
+                            <img
+                              src={img}
+                              alt=""
+                              className="w-full h-full object-cover"
+                              onError={(e) => {
+                                (e.currentTarget as HTMLImageElement).src =
+                                  'https://images.unsplash.com/photo-1461749280684-ddefd3b3e3f7?w=800&h=600&fit=crop';
+                              }}
+                            />
+                            {/* Subtle color overlay bottom */}
+                            <div
+                              className="absolute inset-x-0 bottom-0 h-20 pointer-events-none"
+                              style={{ background: `linear-gradient(to top, ${dotColor}22, transparent)` }}
+                            />
+                            {/* Index badge */}
+                            <div className="absolute top-3 left-3 w-7 h-7 rounded-full bg-black/60 backdrop-blur-sm border border-white/10 flex items-center justify-center">
+                              <span className="text-[10px] font-black text-white tabular-nums">{String(i + 1).padStart(2, '0')}</span>
+                            </div>
+                          </motion.div>
+                        </div>
+
+                        {/* Text */}
+                        <div className={`flex-1 ${isEven ? 'md:pl-2' : 'md:pr-2'}`}>
+                          <span className={`text-[10px] font-bold uppercase tracking-[0.22em] ${colors.text} block mb-3`}>
+                            {section.label}
+                          </span>
+                          <p className="text-gray-200 leading-[1.75] text-[15px] md:text-base">
+                            {section.text}
+                          </p>
+                        </div>
+                      </motion.div>
+                    );
+                  })}
+                </div>
+              );
+            })()}
 
             {/* ── Galerie cinématique ── */}
             {multi && (
