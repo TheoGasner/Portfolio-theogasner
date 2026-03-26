@@ -56,10 +56,18 @@ const CATEGORY_COLORS: Record<string, string> = {
   'creation': 'bg-amber-500/20 text-amber-400 border-amber-500/30',
 };
 
+const CARD_BORDER: Record<string, string> = {
+  'communication': 'border-electric-500/50 hover:border-electric-400 hover:shadow-[0_0_0_1px_rgba(99,102,241,0.5),0_4px_20px_rgba(99,102,241,0.35),0_8px_60px_rgba(99,102,241,0.25)]',
+  'design':        'border-neon-600/50     hover:border-neon-400     hover:shadow-[0_0_0_1px_rgba(168,85,247,0.5),0_4px_20px_rgba(168,85,247,0.35),0_8px_60px_rgba(168,85,247,0.25)]',
+  'web':           'border-cyan-500/50     hover:border-cyan-400     hover:shadow-[0_0_0_1px_rgba(6,182,212,0.5),0_4px_20px_rgba(6,182,212,0.35),0_8px_60px_rgba(6,182,212,0.25)]',
+  'creation':      'border-amber-500/50   hover:border-amber-400    hover:shadow-[0_0_0_1px_rgba(245,158,11,0.5),0_4px_20px_rgba(245,158,11,0.35),0_8px_60px_rgba(245,158,11,0.25)]',
+};
+
 function ProjectCard({ project, index, onClick, language }: { project: Project; index: number; onClick: () => void; language: string }) {
   const p = language === 'en' ? { ...project, ...project.en } : project;
   const filterKey = CATEGORY_TO_FILTER[project.category] ?? 'communication';
   const badgeColor = CATEGORY_COLORS[filterKey] ?? CATEGORY_COLORS['communication'];
+  const cardBorder = CARD_BORDER[filterKey] ?? CARD_BORDER['communication'];
   const isExternal = project.image.startsWith('http');
 
   return (
@@ -71,14 +79,16 @@ function ProjectCard({ project, index, onClick, language }: { project: Project; 
       transition={{ duration: 0.5, delay: index * 0.07 }}
       exit={{ opacity: 0, scale: 0.95 }}
       whileHover={{ y: -8, scale: 1.015 }}
-      className="group cursor-pointer rounded-2xl overflow-hidden bg-dark-800 border border-white/8 transition-all duration-300
-        hover:border-electric-400/80
-        hover:shadow-[0_0_0_1px_rgba(14,165,233,0.5),0_4px_20px_rgba(14,165,233,0.35),0_8px_60px_rgba(14,165,233,0.25),0_0_120px_rgba(14,165,233,0.12)]
-        flex flex-col relative"
+      className={`group cursor-pointer rounded-2xl overflow-hidden bg-dark-800 border transition-all duration-300 flex flex-col relative ${cardBorder}`}
       onClick={onClick}
     >
-      {/* Glow top-edge on hover */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-electric-400/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10" />
+      {/* Glow top-edge on hover — color matches category */}
+      <div className={`absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 ${
+        filterKey === 'communication' ? 'via-electric-400/80' :
+        filterKey === 'design'        ? 'via-neon-400/80' :
+        filterKey === 'web'           ? 'via-cyan-400/80' :
+                                        'via-amber-400/80'
+      }`} />
 
       {/* Image area */}
       <div className="relative h-52 overflow-hidden shrink-0">
