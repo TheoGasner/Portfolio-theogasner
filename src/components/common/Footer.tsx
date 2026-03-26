@@ -1,7 +1,15 @@
 ﻿import { motion } from 'framer-motion';
+import { useState } from 'react';
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
+  const [copied, setCopied] = useState(false);
+
+  const copyEmail = () => {
+    navigator.clipboard.writeText('gasnertheo@gmail.com');
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
 
   const navLinks = [
     { label: 'Accueil', href: '#home' },
@@ -79,16 +87,16 @@ export function Footer() {
               Contact
             </h4>
             <div className="flex flex-col gap-3 md:items-end">
-              <a
-                href="mailto:gasnertheo@gmail.com"
-                className="group flex items-center gap-2 px-4 py-2 rounded-lg border border-white/10 bg-white/5 hover:border-electric-500/40 hover:bg-electric-500/10 transition-all text-sm text-gray-200 hover:text-electric-400"
+              <button
+                onClick={copyEmail}
+                className="relative group flex items-center gap-2 px-4 py-2 rounded-lg border border-white/10 bg-white/5 hover:border-electric-500/40 hover:bg-electric-500/10 transition-all text-sm text-gray-200 hover:text-electric-400"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4 shrink-0">
                   <path d="M1.5 8.67v8.58a3 3 0 0 0 3 3h15a3 3 0 0 0 3-3V8.67l-8.928 5.493a3 3 0 0 1-3.144 0L1.5 8.67z" />
                   <path d="M22.5 6.908V6.75a3 3 0 0 0-3-3h-15a3 3 0 0 0-3 3v.158l9.714 5.978a1.5 1.5 0 0 0 1.572 0L22.5 6.908z" />
                 </svg>
-                gasnertheo@gmail.com
-              </a>
+                {copied ? <span className="text-green-400 font-semibold">Copié !</span> : 'gasnertheo@gmail.com'}
+              </button>
               <a
                 href="https://www.linkedin.com/in/th%C3%A9o-gasner-a6758129a/"
                 target="_blank"
