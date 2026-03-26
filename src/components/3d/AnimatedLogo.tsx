@@ -28,7 +28,7 @@ export function AnimatedLogo() {
         <motion.img
           src={logo}
           alt="Logo Théo Gasner"
-          className="relative z-10 w-full h-full object-contain filter drop-shadow-lg"
+          className="relative z-10 w-full h-full object-contain filter brightness-0 invert drop-shadow-lg"
           animate={{
             y: [0, -15, 0],
           }}

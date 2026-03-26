@@ -89,7 +89,7 @@ export function OrbitalIcons() {
 
               {/* Label au hover (optionnel) */}
               <motion.div
-                className="absolute -bottom-10 text-xs font-semibold text-gray-300 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity"
+                className="absolute -bottom-10 text-xs font-semibold text-gray-200 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity"
                 initial={{ opacity: 0 }}
                 whileHover={{ opacity: 1 }}
               >

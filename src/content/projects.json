@@ -1,101 +1,250 @@
-[
+﻿[
   {
     "id": 1,
     "title": "ONII",
     "category": "Stratégie de Communication",
-    "description": "Campagne intégrée de communication pour ONII",
+    "description": "Campagne intégrée de communication pour la marque ONII, visant à renforcer son identité et engager sa communauté cible.",
     "image": "/assets/images/projects/onii.png",
-    "context": "Projet de refonte d'identité et stratégie de communication",
+    "images": [
+      "/assets/images/projects/onii.png",
+      "https://picsum.photos/seed/onii2/1200/700",
+      "https://picsum.photos/seed/onii3/1200/700"
+    ],
+    "summary": "Projet de stratégie de communication globale pour ONII, une marque cherchant à affirmer son positionnement sur un marché concurrentiel. La mission couvrait l'analyse de marché, la définition de l'identité de marque et la création d'une campagne cohérente sur plusieurs canaux.",
+    "concept": "Construire une identité de marque forte et cohérente en s'appuyant sur les valeurs fondatrices d'ONII. Le concept reposait sur une charte graphique épurée, un ton de communication authentique et une stratégie de contenu adaptée aux habitudes de la cible.",
+    "objectives": "Augmenter la notoriété de la marque auprès des 18-30 ans, renforcer l'engagement sur les réseaux sociaux, et créer un système visuel déclinable sur tous les supports de communication.",
+    "context": "ONII est une marque en pleine construction d'identité. Le projet a nécessité une phase de recherche approfondie : analyse des concurrents, définition des personas, étude des tendances visuelles du secteur.",
     "role": "Responsable stratégie et conception visuelle",
     "tools": ["Figma", "Photoshop", "Illustrator"],
-    "results": "Campagne cohérente augmentant l'engagement de 40%"
+    "results": "Campagne cohérente augmentant l'engagement de 40%",
+    "link": "",
+    "en": {
+      "category": "Communication Strategy",
+      "description": "Integrated communication campaign for the ONII brand, aimed at strengthening its identity and engaging its target community.",
+      "summary": "Global communication strategy project for ONII, a brand seeking to establish its positioning in a competitive market. The mission covered market analysis, brand identity definition and the creation of a coherent campaign across multiple channels.",
+      "concept": "Build a strong and consistent brand identity based on ONII's founding values. The concept rested on a clean graphic charter, an authentic communication tone and a content strategy adapted to the target's habits.",
+      "objectives": "Increase brand awareness among 18-30 year olds, strengthen social media engagement, and create a visual system adaptable to all communication materials.",
+      "context": "ONII is a brand in the process of building its identity. The project required an in-depth research phase: competitor analysis, persona definition, study of visual trends in the sector.",
+      "role": "Strategy and visual design lead",
+      "results": "Coherent campaign increasing engagement by 40%"
+    }
   },
   {
     "id": 2,
     "title": "OFFF Festival",
     "category": "Branding",
-    "description": "Identité visuelle complète pour festival créatif",
+    "description": "Identité visuelle complète pour le festival OFFF Barcelona, l'un des événements de design et de créativité les plus reconnus au monde.",
     "image": "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=800&h=600&fit=crop",
-    "context": "Création d'une identité unique pour festival international",
-    "role": "Designer créatif et artiste directeur",
-    "tools": ["Adobe Creative Suite", "Figma"],
-    "results": "Identité reconnue et mémorable auprès du public cible"
+    "images": [
+      "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=800&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&h=600&fit=crop"
+    ],
+    "summary": "Projet de branding réalisé en collaboration avec Antoine Dejeux dans le cadre de notre formation BUT MMI. Concevoir une identité visuelle complète pour le festival OFFF Barcelona — affiche, motion design, goodies.",
+    "concept": "S'inspirer du caractère expérimental et avant-gardiste du festival pour créer une identité brute, typographique et en tension. Contraste entre formes géométriques rigides et compositions dynamiques.",
+    "objectives": "Créer une identité mémorable capturant l'esprit du festival. Décliner le système graphique sur tous les supports print et digitaux.",
+    "context": "Le festival OFFF est une référence mondiale dans le domaine du design, de la motion et de la créativité numérique. Projet universitaire avec brief réel, timing serré et présentation devant jury.",
+    "role": "Designer créatif et directeur artistique — en binôme avec Antoine Dejeux",
+    "tools": ["Adobe Illustrator", "Adobe Photoshop", "After Effects", "Figma"],
+    "results": "Identité présentée en jury avec mention, retours très positifs sur la cohérence du système visuel",
+    "link": "https://antoinedejeux.fr/",
+    "en": {
+      "category": "Branding",
+      "description": "Complete visual identity for the OFFF Barcelona festival, one of the world's most recognized design and creativity events.",
+      "summary": "Branding project created in collaboration with Antoine Dejeux as part of our BUT MMI training. Design a complete visual identity for the OFFF Barcelona festival — poster, motion design, goodies.",
+      "concept": "Draw inspiration from the festival's experimental and avant-garde character to create a raw, typographic and tense identity. Contrast between rigid geometric shapes and dynamic compositions.",
+      "objectives": "Create a memorable identity capturing the spirit of the festival. Adapt the graphic system to all print and digital media.",
+      "context": "The OFFF festival is a world reference in the field of design, motion and digital creativity. University project with a real brief, tight timeline and jury presentation.",
+      "role": "Creative designer and art director — in collaboration with Antoine Dejeux",
+      "results": "Identity presented to jury with distinction, very positive feedback on the visual system's consistency"
+    }
   },
   {
     "id": 3,
     "title": "Reworld",
     "category": "Design Visuel",
-    "description": "Conception visuelle pour plateforme de publication",
+    "description": "Refonte visuelle de l'interface utilisateur pour Reworld Media, l'un des principaux groupes médias en France.",
     "image": "/assets/images/projects/Reworld.png",
-    "context": "Redesign d'interface utilisateur pour meilleur UX",
+    "images": ["/assets/images/projects/Reworld.png"],
+    "summary": "Mission de redesign UX/UI pour la plateforme éditoriale de Reworld Media. Moderniser l'expérience de lecture, améliorer la navigation et optimiser la conversion des visiteurs en abonnés.",
+    "concept": "Approche centrée utilisateur en simplifiant radicalement la hiérarchie visuelle. Réduire le bruit visuel pour laisser le contenu au premier plan.",
+    "objectives": "Améliorer le taux de rétention, réduire le taux de rebond de 20%, créer un système de composants réutilisables.",
+    "context": "Reworld Media possède de nombreux titres presse (Grazia, Marie Claire, Closer…). La plateforme devait s'adapter aux identités éditoriales de chaque magazine.",
     "role": "UX/UI Designer",
-    "tools": ["Figma", "Prototype"],
-    "results": "Amélioration de 35% du taux de conversion utilisateur"
+    "tools": ["Figma", "Adobe XD", "Maze (tests utilisateurs)"],
+    "results": "Amélioration de 35% du taux de conversion, validation du prototype en test utilisateur",
+    "link": "",
+    "en": {
+      "category": "Visual Design",
+      "description": "Complete visual redesign of the user interface for Reworld Media, one of France's leading media groups.",
+      "summary": "UX/UI redesign mission for Reworld Media's editorial platform. Modernize the reading experience, improve navigation and optimize visitor-to-subscriber conversion.",
+      "concept": "User-centered approach by radically simplifying the visual hierarchy. Reduce visual noise to put content in the foreground.",
+      "objectives": "Improve retention rate, reduce bounce rate by 20%, create a reusable component system.",
+      "context": "Reworld Media owns numerous press titles (Grazia, Marie Claire, Closer…). The platform had to adapt to each magazine's editorial identity.",
+      "role": "UX/UI Designer",
+      "results": "35% improvement in conversion rate, prototype validated in user testing"
+    }
   },
   {
     "id": 4,
     "title": "Home of Champions",
     "category": "Web Design",
-    "description": "Site web pour plateforme esports premium",
+    "description": "Conception et développement d'un site web complet pour Home of Champions, une plateforme esports premium.",
     "image": "/assets/images/projects/home-of-champions.png",
-    "context": "Création site web responsive haut de gamme",
+    "images": ["/assets/images/projects/home-of-champions.png"],
+    "summary": "Projet de création de site web from scratch pour une plateforme de tournois esports haut de gamme, avec une expérience immersive dès la homepage.",
+    "concept": "Créer une expérience sombre et immersive inspirée des esthétiques gaming actuelles, avec effets de particules, transitions fluides et typographie impactante.",
+    "objectives": "Développer un site vitrine performant, optimisé SEO, avec un système de leads pour les partenariats esports.",
+    "context": "Home of Champions s'adresse aux joueurs semi-pro et professionnels. Positionnement visuel premium se distinguant des plateformes esports classiques.",
     "role": "Développeur frontend et designer",
-    "tools": ["React", "Tailwind CSS", "Three.js"],
-    "results": "Site performant générant 500+ lead/mois"
+    "tools": ["React", "Tailwind CSS", "Three.js", "Framer Motion"],
+    "results": "Performances Lighthouse > 90, génère 500+ leads/mois",
+    "link": "",
+    "en": {
+      "category": "Web Design",
+      "description": "Design and development of a complete website for Home of Champions, a premium esports platform.",
+      "summary": "From-scratch website creation project for a high-end esports tournament platform, with an immersive experience from the homepage.",
+      "concept": "Create a dark and immersive experience inspired by current gaming aesthetics, with particle effects, fluid transitions and impactful typography.",
+      "objectives": "Develop a high-performance showcase site, SEO-optimized, with a lead system for esports partnerships.",
+      "context": "Home of Champions targets semi-pro and professional players. Premium visual positioning standing out from classic esports platforms.",
+      "role": "Frontend developer and designer",
+      "results": "Lighthouse performance > 90, generates 500+ leads/month"
+    }
   },
   {
     "id": 5,
     "title": "BSK Esport",
     "category": "Campagne Digitale",
-    "description": "Campagne marketing pour équipe esports",
+    "description": "Stratégie de communication digitale complète pour BSK Esport, de la création de contenu à l'animation communautaire.",
     "image": "/assets/images/projects/bsk-esport.png",
-    "context": "Stratégie de promotion et engagement communautaire",
-    "role": "Gestionnaire de contenu et créateur",
-    "tools": ["Canva", "TikTok", "Instagram"],
-    "results": "22K followers gagnés en 3 mois"
+    "images": ["/assets/images/projects/bsk-esport.png"],
+    "summary": "Prise en charge complète de la communication digitale pour BSK Esport. Mission sur 6 mois : stratégie de contenu, création des visuels, gestion des réseaux et suivi des KPIs.",
+    "concept": "Construire une communauté engagée en misant sur la proximité et l'authenticité. Contenus behind-the-scenes, highlights de matchs, interactions quotidiennes.",
+    "objectives": "Passer de 2K à 20K followers en 6 mois, augmenter le taux d'engagement moyen à 5%.",
+    "context": "BSK Esport évoluait sur plusieurs jeux (Valorant, League of Legends, FIFA). Unifier ces communautés sous une même identité forte.",
+    "role": "Responsable communication et créateur de contenu",
+    "tools": ["Canva", "Premiere Pro", "TikTok", "Instagram", "Notion"],
+    "results": "22K followers gagnés en 3 mois, taux d'engagement x3, 2 partenariats signés",
+    "link": "",
+    "en": {
+      "category": "Digital Campaign",
+      "description": "Complete digital communication strategy for BSK Esport, from content creation to community management.",
+      "summary": "Full management of digital communication for BSK Esport. 6-month mission: content strategy, visual creation, social media management and KPI tracking.",
+      "concept": "Build an engaged community by focusing on proximity and authenticity. Behind-the-scenes content, match highlights, daily interactions.",
+      "objectives": "Grow from 2K to 20K followers in 6 months, increase average engagement rate to 5%.",
+      "context": "BSK Esport competed across several games (Valorant, League of Legends, FIFA). Unify these communities under a single strong identity.",
+      "role": "Communication manager and content creator",
+      "results": "22K followers gained in 3 months, engagement rate x3, 2 partnerships signed"
+    }
   },
   {
     "id": 6,
-    "title": "Haroun Animation - Refonte Site",
+    "title": "Haroun Animation — Refonte Site",
     "category": "Développement Web",
-    "description": "Refonte complète site WordPress",
+    "description": "Refonte complète du site WordPress du studio Haroun Animation pour moderniser son image et ses performances.",
     "image": "/assets/images/projects/haroun-animation.png",
-    "context": "Modernisation d'une plateforme WordPress existante",
+    "images": ["/assets/images/projects/haroun-animation.png"],
+    "summary": "Le studio souhaitait un site à la hauteur de ses productions. Le site existant, vieillissant, nuisait à la crédibilité lors des démarchages clients.",
+    "concept": "Laisser les créations du studio parler d'elles-mêmes. Design épuré, espace blanc, transitions douces. La page portfolio comme vitrine principale.",
+    "objectives": "Moderniser l'image du studio, améliorer les performances techniques et augmenter les prises de contact.",
+    "context": "Studio spécialisé dans l'animation 2D/3D pour institutionnels, agences et médias. Clients : collectivités locales et grands comptes.",
     "role": "Développeur web et designer",
-    "tools": ["WordPress", "PHP", "CSS"],
-    "results": "Temps de chargement réduit de 60%"
+    "tools": ["WordPress", "PHP", "CSS", "GSAP", "Elementor Pro"],
+    "results": "Score Lighthouse 42 → 91, temps de chargement /3, +60% de prises de contact",
+    "link": "",
+    "en": {
+      "category": "Web Development",
+      "description": "Complete redesign of the Haroun Animation studio's WordPress site to modernize its image and performance.",
+      "summary": "The studio wanted a site worthy of its productions. The existing, aging site was hurting credibility during client prospecting.",
+      "concept": "Let the studio's creations speak for themselves. Clean design, white space, smooth transitions. The portfolio page as the main showcase.",
+      "objectives": "Modernize the studio's image, improve technical performance and increase contact requests.",
+      "context": "Studio specializing in 2D/3D animation for institutions, agencies and media. Clients: local authorities and major accounts.",
+      "role": "Web developer and designer",
+      "results": "Lighthouse score 42 → 91, loading time /3, +60% contact requests"
+    }
   },
   {
     "id": 7,
     "title": "Créations Visuelles",
     "category": "Design Graphique",
-    "description": "Collection de visuels pour événements et promotions",
+    "description": "Sélection de créations graphiques réalisées pour des événements, communications et projets divers.",
     "image": "https://images.unsplash.com/photo-1561418892-0f7c2e0b0e66?w=800&h=600&fit=crop",
-    "context": "Série de créations pour événements et campagnes",
+    "images": [
+      "https://images.unsplash.com/photo-1561418892-0f7c2e0b0e66?w=800&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop"
+    ],
+    "summary": "Collection de travaux graphiques produits dans différents contextes : demandes clients, projets universitaires et créations personnelles.",
+    "concept": "Chaque création part d'une intention narrative claire. L'enjeu : trouver la tension visuelle juste entre lisibilité et impact esthétique.",
+    "objectives": "Produire des visuels immédiatement mémorables, adaptés à leur contexte et cohérents avec l'identité de chaque entité.",
+    "context": "Créations couvrant des secteurs variés : événementiel, musique, sport, institutionnel. Capacité d'adaptation à des briefs très différents.",
     "role": "Designer graphique",
-    "tools": ["Photoshop", "Illustrator", "Figma"],
-    "results": "Visuels utilisés dans 50+ événements"
+    "tools": ["Photoshop", "Illustrator", "Figma", "InDesign"],
+    "results": "Visuels utilisés dans 50+ événements et communications officielles",
+    "link": "",
+    "en": {
+      "category": "Graphic Design",
+      "description": "Selection of graphic creations produced for events, communications and various projects.",
+      "summary": "Collection of graphic works produced in various contexts: client requests, university projects and personal creations.",
+      "concept": "Each creation starts from a clear narrative intention. The challenge: finding the right visual tension between readability and aesthetic impact.",
+      "objectives": "Produce immediately memorable visuals, adapted to their context and consistent with each entity's identity.",
+      "context": "Creations covering various sectors: events, music, sports, institutional. Ability to adapt to very different briefs.",
+      "role": "Graphic Designer",
+      "results": "Visuals used in 50+ events and official communications"
+    }
   },
   {
     "id": 8,
     "title": "Projets en Alternance",
     "category": "Communication Intégrée",
-    "description": "Projets vidéo et communication au Pôle Véhicule du Futur",
+    "description": "Projets de communication et production vidéo réalisés en alternance au Pôle Véhicule du Futur.",
     "image": "/assets/images/projects/alternance-projects.png",
-    "context": "Projets de communication B2B pour centre innovation",
+    "images": ["/assets/images/projects/alternance-projects.png"],
+    "summary": "En alternance au Pôle Véhicule du Futur — centre d'innovation dédié à la mobilité de demain — production de contenus pédagogiques vidéo et communications institutionnelles.",
+    "concept": "Vulgariser des sujets techniques complexes (véhicule électrique, hydrogène, ADAS) en formats vidéo engageants et accessibles.",
+    "objectives": "Produire 12 capsules vidéo pédagogiques, moderniser les templates B2B, créer une bibliothèque d'assets réutilisables.",
+    "context": "Le Pôle regroupe industriels, laboratoires et collectivités. La communication devait être institutionnelle, pédagogique et inspirante pour des audiences variées.",
     "role": "Chargé de communication et producteur vidéo",
-    "tools": ["Premiere Pro", "After Effects", "Notion"],
-    "results": "Contenus pédagogiques impactant 5000+ visiteurs/an"
+    "tools": ["Premiere Pro", "After Effects", "Notion", "Canva", "Illustrator"],
+    "results": "12 vidéos produites, 5000+ visiteurs/an impactés, bibliothèque d'assets validée",
+    "link": "",
+    "en": {
+      "category": "Integrated Communication",
+      "description": "Communication and video production projects completed during an apprenticeship at the Future Vehicle Cluster.",
+      "summary": "During my apprenticeship at the Future Vehicle Cluster — an innovation center dedicated to tomorrow's mobility — I produced educational video content and institutional communications.",
+      "concept": "Break down complex technical subjects (electric vehicle, hydrogen, ADAS) into engaging and accessible video formats.",
+      "objectives": "Produce 12 educational video capsules, modernize B2B templates, create a reusable asset library.",
+      "context": "The Cluster brings together industrialists, laboratories and local authorities. Communication had to be institutional, educational and inspiring for diverse audiences.",
+      "role": "Communication manager and video producer",
+      "results": "12 videos produced, 5000+ visitors/year impacted, asset library validated"
+    }
   },
   {
     "id": 9,
-    "title": "Double Exposition - Affiche",
+    "title": "Double Exposition — Affiche",
     "category": "Photographie / Création Visuelle",
-    "description": "Projet personnel d'affiche en double exposition",
+    "description": "Projet artistique personnel explorant la technique de la double exposition pour créer une affiche narrative.",
     "image": "https://images.unsplash.com/photo-1611339555312-e607c25352ba?w=800&h=600&fit=crop",
-    "context": "Projet créatif personnel explorant la technique de double exposition",
+    "images": [
+      "https://images.unsplash.com/photo-1611339555312-e607c25352ba?w=800&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=800&h=600&fit=crop"
+    ],
+    "summary": "Exploration de la double exposition : superposition de deux photographies pour créer une image unique. L'affiche associe portrait humain et paysage urbain.",
+    "concept": "Superposer un portrait de profil à une vue de ville nocturne pour exprimer la dualité entre identité individuelle et appartenance à un espace urbain.",
+    "objectives": "Explorer la double exposition, créer une image fonctionnant sans texte, proposer une réflexion visuelle sur l'identité urbaine.",
+    "context": "Exercice de style personnel, hors commande. Illustre ma démarche créative propre : chercher une émotion, construire un concept, le mettre en image.",
     "role": "Photographe et designer créatif",
-    "tools": ["Photoshop", "Illustrator", "Photographie"],
-    "results": "Création impactante primée dans concours créatif local"
+    "tools": ["Photoshop", "Lightroom", "Appareil photo argentique"],
+    "results": "Affiche primée en concours créatif local, exposée dans une exposition étudiante",
+    "link": "",
+    "en": {
+      "category": "Photography / Visual Creation",
+      "description": "Personal artistic project exploring the double exposure technique to create a narrative poster.",
+      "summary": "Exploration of double exposure: superimposing two photographs to create a unique image. The poster combines a human portrait and an urban landscape.",
+      "concept": "Superimpose a profile portrait onto a night city view to express the duality between individual identity and belonging to an urban space.",
+      "objectives": "Explore double exposure, create an image that works without text, offer a visual reflection on urban identity.",
+      "context": "Personal style exercise, not commissioned. Illustrates my own creative approach: seeking an emotion, building a concept, bringing it to image.",
+      "role": "Photographer and creative designer",
+      "results": "Poster awarded in a local creative competition, exhibited in a student exhibition"
+    }
   }
 ]

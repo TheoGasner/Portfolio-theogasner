@@ -1,4 +1,4 @@
-import { Header, Footer } from './components/common';
+import { AnimatedBackground, ScrollProgress, CustomCursor, Header, Footer } from './components/common';
 import {
   HeroSection,
   AboutSection,
@@ -10,23 +10,35 @@ import {
 
 function App() {
   return (
-    <div className="w-full min-h-screen flex flex-col">
-      {/* Header Navigation */}
-      <Header />
+    <>
+      {/* Curseur personnalisé */}
+      <CustomCursor />
 
-      {/* Main content */}
-      <main className="w-full flex-grow">
-        <HeroSection />
-        <AboutSection />
-        <ProjectsSection />
-        <ExperienceSection />
-        <SkillsSection />
-        <ContactSection />
-      </main>
+      {/* Fond animé global - fixed derrière tout le contenu */}
+      <AnimatedBackground />
 
-      {/* Footer */}
-      <Footer />
-    </div>
+      {/* Barre de progression scroll */}
+      <ScrollProgress />
+
+      {/* Contenu au-dessus du fond */}
+      <div className="relative z-[1] w-full min-h-screen flex flex-col">
+        {/* Header Navigation */}
+        <Header />
+
+        {/* Main content */}
+        <main className="w-full flex-grow">
+          <HeroSection />
+          <AboutSection />
+          <ProjectsSection />
+          <ExperienceSection />
+          <SkillsSection />
+          <ContactSection />
+        </main>
+
+        {/* Footer */}
+        <Footer />
+      </div>
+    </>
   );
 }
 

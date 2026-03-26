@@ -31,7 +31,7 @@ export function FilterButton({ label, isActive, onClick }: FilterButtonProps) {
         ${
           isActive
             ? 'bg-gradient-to-r from-electric-500 to-neon-600 text-white border-electric-500 shadow-lg'
-            : 'bg-transparent text-gray-300 border-electric-500/50 hover:border-electric-500 hover:text-electric-400'
+            : 'bg-transparent text-gray-200 border-electric-500/50 hover:border-electric-500 hover:text-electric-400'
         }
       `}
     >

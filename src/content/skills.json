@@ -3,72 +3,84 @@
     "id": 1,
     "name": "Communication Strategy",
     "description": "Élaboration de stratégies de communication cohérentes et impactantes",
+    "description_en": "Building coherent and impactful communication strategies",
     "tools": ["Notion", "Figma", "Google Suite"]
   },
   {
     "id": 2,
     "name": "Digital Marketing",
     "description": "Campagnes digitales multicanal et gestion des audiences",
+    "description_en": "Multichannel digital campaigns and audience management",
     "tools": ["Meta Ads", "Google Analytics", "Hootsuite", "Canva"]
   },
   {
     "id": 3,
     "name": "Visual Design",
     "description": "Création de visuels impactants et cohérents",
+    "description_en": "Creating impactful and consistent visual content",
     "tools": ["Figma", "Photoshop", "Illustrator", "Canva"]
   },
   {
     "id": 4,
     "name": "Branding",
     "description": "Développement d'identités de marque fortes",
+    "description_en": "Developing strong and memorable brand identities",
     "tools": ["Adobe Suite", "Figma"]
   },
   {
     "id": 5,
     "name": "Web Design",
     "description": "Design d'interfaces web modernes et ergonomiques",
+    "description_en": "Designing modern and user-friendly web interfaces",
     "tools": ["Figma", "React", "Tailwind CSS"]
   },
   {
     "id": 7,
     "name": "Web Development",
     "description": "Développement web et intégration interactive",
+    "description_en": "Web development and interactive integration",
     "tools": ["React", "TypeScript", "Tailwind CSS", "WordPress"]
   },
   {
     "id": 8,
     "name": "Video Production",
     "description": "Tournage, montage et production vidéo",
+    "description_en": "Shooting, editing and video production",
     "tools": ["Premiere Pro", "After Effects", "DaVinci Resolve"]
   },
   {
     "id": 9,
     "name": "UX Research",
     "description": "Recherche utilisateur et optimisation d'expérience",
+    "description_en": "User research and experience optimization",
     "tools": ["Figma", "UserTesting", "Hotjar", "Surveys"]
   },
   {
     "id": 10,
     "name": "Motion Design",
     "description": "Création d'animations et d'effets visuels dynamiques",
+    "description_en": "Creating dynamic animations and visual effects",
     "tools": ["After Effects", "Figma", "Framer Motion", "Cinema 4D"]
   },
   {
     "id": 12,
     "name": "Brand Strategy",
     "description": "Positionnement de marque et architecture commerciale",
+    "description_en": "Brand positioning and commercial architecture",
     "tools": ["Notion", "Miro", "Adobe XD", "Figma"]
   },
   {
     "id": 13,
     "name": "Analytics & Data",
     "description": "Analyse de données et insights marketing",
+    "description_en": "Data analysis and marketing insights",
     "tools": ["Google Analytics", "Tableau", "Data Studio", "Excel"]
   },
   {
     "id": 14,
     "name": "Project Management",
     "description": "Planification et coordination de projets complexes",
+    "description_en": "Planning and coordination of complex projects",
     "tools": ["Asana", "Monday.com", "Notion", "Trello"]
   }
 ]

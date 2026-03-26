@@ -10,6 +10,7 @@ export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navItems = t('header.nav');
+  const sectionIds = ['home', 'about', 'projects', 'experience', 'skills', 'contact'];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -72,7 +73,7 @@ export function Header() {
                 <img
                   src={logo}
                   alt="Logo TG"
-                  className="relative w-full h-full object-contain filter drop-shadow-lg"
+                  className="relative w-full h-full object-contain filter brightness-0 invert drop-shadow-lg"
                 />
               </div>
             </motion.button>
@@ -82,11 +83,11 @@ export function Header() {
               {navItems.map((item: string, index: number) => (
                 <motion.button
                   key={index}
-                  onClick={() => scrollToSection(item.toLowerCase())}
+                  onClick={() => scrollToSection(sectionIds[index])}
                   className={`text-sm font-medium transition-all duration-300 relative pb-0.5 ${
-                    activeSection === item.toLowerCase()
+                    activeSection === sectionIds[index]
                       ? 'text-electric-400'
-                      : 'text-gray-400 hover:text-white'
+                      : 'text-gray-200 hover:text-white'
                   }`}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
@@ -95,7 +96,7 @@ export function Header() {
                   {/* Underline animation */}
                   <span
                     className={`absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-electric-500 to-neon-600 transition-all duration-300 ${
-                      activeSection === item.toLowerCase() ? 'w-full' : 'w-0'
+                      activeSection === sectionIds[index] ? 'w-full' : 'w-0'
                     }`}
                   />
                 </motion.button>
@@ -111,7 +112,7 @@ export function Header() {
                   className={`text-xs font-semibold px-3 py-1.5 rounded-lg transition-all duration-300 ${
                     language === 'fr'
                       ? 'bg-electric-500/20 text-electric-400'
-                      : 'text-gray-400 hover:text-gray-300'
+                      : 'text-gray-200 hover:text-white'
                   }`}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
@@ -124,7 +125,7 @@ export function Header() {
                   className={`text-xs font-semibold px-3 py-1.5 rounded-lg transition-all duration-300 ${
                     language === 'en'
                       ? 'bg-neon-500/20 text-neon-400'
-                      : 'text-gray-400 hover:text-gray-300'
+                      : 'text-gray-200 hover:text-white'
                   }`}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
@@ -136,7 +137,7 @@ export function Header() {
               {/* Mobile Menu Button - Only visible on mobile */}
               <motion.button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="md:hidden relative w-8 h-8 flex flex-col items-center justify-center gap-1.5 text-gray-300 hover:text-white transition-colors"
+                className="md:hidden relative w-8 h-8 flex flex-col items-center justify-center gap-1.5 text-gray-200 hover:text-white transition-colors"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -174,11 +175,11 @@ export function Header() {
                 {navItems.map((item: string, index: number) => (
                   <motion.button
                     key={index}
-                    onClick={() => scrollToSection(item.toLowerCase())}
+                    onClick={() => scrollToSection(sectionIds[index])}
                     className={`w-full text-left text-sm font-medium py-2 px-3 rounded-lg transition-all duration-300 ${
-                      activeSection === item.toLowerCase()
+                      activeSection === sectionIds[index]
                         ? 'bg-electric-500/20 text-electric-400'
-                        : 'text-gray-300 hover:bg-dark-800/50 hover:text-white'
+                        : 'text-gray-200 hover:bg-dark-800/50 hover:text-white'
                     }`}
                     whileHover={{ x: 4 }}
                     whileTap={{ scale: 0.98 }}
@@ -192,14 +193,14 @@ export function Header() {
 
                 {/* Language Switcher - Mobile */}
                 <div className="flex items-center gap-2 py-2">
-                  <span className="text-xs font-semibold text-gray-500 uppercase">Langue</span>
+                  <span className="text-xs font-semibold text-gray-300 uppercase">Langue</span>
                   <div className="flex-1" />
                   <motion.button
                     onClick={() => switchLanguage('fr')}
                     className={`px-3 py-1.5 text-xs font-semibold rounded-lg transition-all duration-300 ${
                       language === 'fr'
                         ? 'bg-electric-500/20 text-electric-400'
-                        : 'text-gray-400 hover:text-gray-300'
+                        : 'text-gray-200 hover:text-white'
                     }`}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
@@ -212,7 +213,7 @@ export function Header() {
                     className={`px-3 py-1.5 text-xs font-semibold rounded-lg transition-all duration-300 ${
                       language === 'en'
                         ? 'bg-neon-500/20 text-neon-400'
-                        : 'text-gray-400 hover:text-gray-300'
+                        : 'text-gray-200 hover:text-white'
                     }`}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}

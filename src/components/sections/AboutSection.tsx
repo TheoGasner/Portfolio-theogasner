@@ -4,7 +4,6 @@ import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import { useLanguage } from '../../hooks/useLanguage';
 import { GlassCard } from '../common';
-import profileImage from '../../assets/images/profile.JPG';
 import texts from '../../content/text.json';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -72,7 +71,7 @@ export function AboutSection() {
       <div ref={contentRef} className="relative z-10 max-w-7xl mx-auto">
         {/* ==================== SECTION TITLE ==================== */}
         <motion.h2
-          className="text-4xl md:text-5xl font-grotesk font-bold mb-16 text-center"
+          className="text-reveal-clip text-4xl md:text-5xl font-grotesk font-bold mb-16 text-center"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -92,7 +91,9 @@ export function AboutSection() {
             transition={{ duration: 0.7, ease: 'easeOut' }}
             className="flex justify-center lg:justify-end"
           >
-            <div className="relative w-full max-w-md">
+            <motion.div
+              className="relative w-full max-w-md"
+            >
 
               {/*
                 HALO EFFECT - Customize here:
@@ -109,14 +110,14 @@ export function AboutSection() {
               */}
               <div className="relative rounded-3xl overflow-hidden border border-electric-500/50 shadow-2xl shadow-electric-500/20">
                 <img
-                  src={profileImage}
+                  src="/src/assets/images/profile.JPG"
                   alt={t('about.imageAlt') || 'Portrait de Théo Gasner'}
                   className="w-full h-auto object-cover aspect-[3/4] block"
                 />
                 {/* Overlay subtle gradient for depth */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent" />
               </div>
-            </div>
+            </motion.div>
           </motion.div>
 
           {/* ========== RIGHT COLUMN: BIO & EXPERTISE ========== */}
@@ -188,9 +189,9 @@ export function AboutSection() {
           transition={{ duration: 0.6 }}
           className="mt-20"
         >
-          <h3 className="text-2xl md:text-3xl font-grotesk font-bold mb-12 text-center">
+          <h2 className="text-reveal-clip text-4xl md:text-5xl font-grotesk font-bold mb-16 text-center">
             {t('about.education')}
-          </h3>
+          </h2>
 
           <div className="space-y-6">
             {timeline.slice(0, 3).map((item: TimelineItem, index: number) => (
@@ -210,7 +211,7 @@ export function AboutSection() {
                       <h4 className="text-lg font-grotesk font-bold mt-2">
                         {item.title}
                       </h4>
-                      <p className="text-gray-300 mt-2">
+                      <p className="text-gray-200 mt-2">
                         {item.description}
                       </p>
                     </div>

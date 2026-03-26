@@ -5,7 +5,7 @@ import { ToolsGrid } from './ToolsGrid';
 import skills from '../../content/skills.json';
 
 export function SkillsSection() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   return (
     <section
@@ -36,10 +36,10 @@ export function SkillsSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-4xl md:text-5xl font-grotesk font-bold mb-4">
+          <h2 className="text-reveal-clip text-4xl md:text-5xl font-grotesk font-bold mb-16">
             {t('skills.title')}
           </h2>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+          <p className="text-gray-200 text-lg max-w-2xl mx-auto">
             {t('skills.description')}
           </p>
         </motion.div>
@@ -52,7 +52,7 @@ export function SkillsSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.1 }}
         >
-          <SkillsGrid skills={skills as any} />
+          <SkillsGrid skills={skills as any} language={language} />
         </motion.div>
 
         {/* Tools section below */}
@@ -63,11 +63,11 @@ export function SkillsSection() {
           transition={{ duration: 0.6, delay: 0.2 }}
         >
           <div className="mb-16">
-            <h3 className="text-3xl md:text-4xl font-grotesk font-bold text-center mb-2">
-              Outils & Technologies
-            </h3>
-            <p className="text-center text-gray-400 text-sm">
-              Survolez les icônes pour découvrir chaque outil
+            <h2 className="text-reveal-clip text-4xl md:text-5xl font-grotesk font-bold text-center mb-2">
+              {language === 'en' ? 'Tools & Technologies' : 'Outils & Technologies'}
+            </h2>
+            <p className="text-center text-gray-200 text-sm">
+              {language === 'en' ? 'Hover over the icons to discover each tool' : 'Survolez les icônes pour découvrir chaque outil'}
             </p>
           </div>
           <ToolsGrid />

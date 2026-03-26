@@ -82,7 +82,7 @@ export function SkillsOrbits({ skills }: SkillsOrbitsProps) {
                         <p className="font-semibold text-white mb-2 text-sm">
                           {skill.name}
                         </p>
-                        <p className="text-gray-300 mb-3 text-xs leading-relaxed">
+                        <p className="text-gray-200 mb-3 text-xs leading-relaxed">
                           {skill.description}
                         </p>
                         <div className="flex flex-wrap gap-1">

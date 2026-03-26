@@ -12,11 +12,12 @@
 
 html {
   scroll-behavior: smooth;
+  cursor: none;
 }
 
 body {
   margin: 0;
-  background: transparent; /* Transparent pour voir le gradient du #root */
+  background: #0D2137;
   color: #e5e5e5;
   font-family: 'Satoshi', sans-serif;
   font-synthesis: none;
@@ -51,10 +52,7 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background: linear-gradient(135deg, #0D2137 0%, #3A1E5D 50%, #7F3FF1 100%);
-  /* Alternative radiale pour un effet plus circulaire:
-     background: radial-gradient(800px at 20% 20%, #0D2137, #3A1E5D 40%, #7F3FF1);
-  */
+  background: transparent;
 }
 
 /* Typographie */
@@ -140,6 +138,65 @@ a:hover {
 }
 
 /* Animations globales */
+@keyframes clipPathReveal {
+  0% { clip-path: inset(0 100% 0 0); }
+  100% { clip-path: inset(0 0 0 0); }
+}
+
+.text-reveal-clip {
+  animation: clipPathReveal 0.8s ease-out forwards;
+  animation-delay: 0.2s;
+}
+
+/* Border gradient animée pour les cartes */
+@keyframes borderGradientRotate {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.border-gradient-animated {
+  background: linear-gradient(90deg, #0ea5e9, #a855f7, #22d3ee, #0ea5e9);
+  background-size: 300% 100%;
+  animation: borderGradientRotate 3s ease infinite;
+  padding: 1px;
+  border-radius: 12px;
+}
+
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50%       { background-position: 100% 50%; }
+}
+
+/* Texte avec gradient de couleurs animé en boucle */
+.text-gradient-animated {
+  background: linear-gradient(270deg, #0ea5e9, #a855f7, #22d3ee, #d946ef, #0ea5e9);
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 6s ease infinite;
+}
+
+/* Soulignement shimmer pour les titres de sections */
+.section-title-underline {
+  position: relative;
+  display: inline-block;
+}
+.section-title-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 3px;
+  width: 60px;
+  border-radius: 9999px;
+  background: linear-gradient(90deg, #0ea5e9, #a855f7, #22d3ee, #0ea5e9);
+  background-size: 300% 100%;
+  animation: gradientShift 3s ease infinite;
+}
+
 @keyframes fadeInUp {
   from {
     opacity: 0;

@@ -22,17 +22,17 @@
         {
           "date": "2020 - 2022",
           "title": "Baccalauréat STI2D",
-          "description": "Spécialité SIN - Fondations en numérique et technologie"
+          "description": "Spécialité SIN - Systèmes d'Information et Numérique"
         },
         {
           "date": "2022 - 2023",
           "title": "BUT Informatique",
-          "description": "Année 1 à Belfort - Fondamentals de programmation et développement"
+          "description": "1ère année à Belfort - Fondamentaux de programmation et développement"
         },
         {
-          "date": "2023 - 2024",
-          "title": "BUT MMI",
-          "description": "3ème année à Montbéliard - Métiers du Multimédia et de l'Internet"
+          "date": "2023 - 2026",
+          "title": "BUT Métier du Multimédia et de l'Internet (MMI)",
+          "description": "Stratégie de Communication Numérique et Design d'Expérience"
         },
         {
           "date": "2023 - 2024",
@@ -97,17 +97,17 @@
         {
           "date": "2020 - 2022",
           "title": "STI2D Baccalaureate",
-          "description": "Specialization SIN - Foundations in digital and technology"
+          "description": "Specialization SIN - Information Systems and Digital"
         },
         {
           "date": "2022 - 2023",
           "title": "Bachelor's in IT",
-          "description": "Year 1 in Belfort - Fundamentals of programming and development"
+          "description": "1st year in Belfort - Fundamentals of programming and development"
         },
         {
-          "date": "2023 - 2024",
-          "title": "Bachelor's in MMI",
-          "description": "3rd year in Montbéliard - Multimedia and Internet Professions"
+          "date": "2023 - 2026",
+          "title": "BUT MMI - Multimedia and Internet Professions",
+          "description": "Digital Communication Strategy and Experience Design"
         },
         {
           "date": "2023 - 2024",

@@ -4,11 +4,13 @@ interface Skill {
   id: number;
   name: string;
   description: string;
+  description_en?: string;
   tools: string[];
 }
 
 interface SkillsGridProps {
   skills: Skill[];
+  language?: string;
 }
 
 const GRADIENT_COLORS = [
@@ -45,12 +47,13 @@ const EMOJI_ICONS = [
   '🎪',
 ];
 
-export function SkillsGrid({ skills }: SkillsGridProps) {
+export function SkillsGrid({ skills, language }: SkillsGridProps) {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {skills.map((skill, index) => {
         const gradientIndex = index % GRADIENT_COLORS.length;
         const emojiIndex = index % EMOJI_ICONS.length;
+        const desc = language === 'en' && skill.description_en ? skill.description_en : skill.description;
 
         return (
           <motion.div
@@ -85,8 +88,8 @@ export function SkillsGrid({ skills }: SkillsGridProps) {
                 <h3 className="text-xl font-grotesk font-bold mb-2 text-white relative z-10 line-clamp-2">
                   {skill.name}
                 </h3>
-                <p className="text-sm text-gray-300 mb-4 flex-1 relative z-10 line-clamp-3">
-                  {skill.description}
+                <p className="text-sm text-gray-200 mb-4 flex-1 relative z-10 line-clamp-3">
+                  {desc}
                 </p>
 
                 {/* Tools preview */}
@@ -105,7 +108,7 @@ export function SkillsGrid({ skills }: SkillsGridProps) {
                       </motion.span>
                     ))}
                     {skill.tools.length > 2 && (
-                      <span className="px-2 py-1 text-xs text-gray-400">
+                      <span className="px-2 py-1 text-xs text-gray-200">
                         +{skill.tools.length - 2}
                       </span>
                     )}
