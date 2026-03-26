@@ -324,26 +324,23 @@ export function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
                           </div>
                         )}
 
-                        {/* Texte seul — large, sur 2 colonnes */}
+                        {/* Texte centré — pleine largeur */}
                         {pattern === 'text-only' && (
-                          <div className="grid md:grid-cols-[auto_1fr] gap-6 md:gap-16 items-start">
-                            <span className={`text-[10px] font-bold uppercase tracking-[0.22em] ${colors.text} mt-1 md:w-28 shrink-0`}>
+                          <div className="max-w-2xl mx-auto text-center">
+                            <span className={`text-[10px] font-bold uppercase tracking-[0.22em] ${colors.text} block mb-4`}>
                               {section.label}
                             </span>
-                            <p className="text-gray-200 leading-[1.8] text-[16px] md:text-[17px]">{section.text}</p>
+                            <p className="text-gray-200 leading-[1.85] text-[16px] md:text-[17px]">{section.text}</p>
                           </div>
                         )}
 
-                        {/* Image plein-large (16/9) + léger caption texte dessous */}
+                        {/* Texte seul large — anciennement img-full */}
                         {pattern === 'img-full' && (
-                          <div>
-                            <ImgBlock src={img} ratio="16/9" />
-                            <div className="mt-5 grid md:grid-cols-[auto_1fr] gap-4 md:gap-16 items-start">
-                              <span className={`text-[10px] font-bold uppercase tracking-[0.22em] ${colors.text} mt-1 md:w-28 shrink-0`}>
-                                {section.label}
-                              </span>
-                              <p className="text-gray-300 leading-[1.75] text-[15px]">{section.text}</p>
-                            </div>
+                          <div className="max-w-2xl mx-auto text-center">
+                            <span className={`text-[10px] font-bold uppercase tracking-[0.22em] ${colors.text} block mb-4`}>
+                              {section.label}
+                            </span>
+                            <p className="text-gray-200 leading-[1.85] text-[16px] md:text-[17px]">{section.text}</p>
                           </div>
                         )}
                       </motion.div>
