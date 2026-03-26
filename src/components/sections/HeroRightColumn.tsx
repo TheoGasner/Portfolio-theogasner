@@ -72,7 +72,7 @@ export function HeroRightColumn() {
       <motion.a
         href="/CV-Theo-Gasner.pdf"
         download
-        className="inline-flex items-center gap-2 px-8 py-3 bg-white/10 text-white font-semibold rounded-lg border border-white/30 backdrop-blur-sm hover:bg-gradient-to-r hover:from-electric-400 hover:via-cyan-300 hover:to-neon-400 hover:border-transparent transition-all duration-300"
+        className="inline-flex items-center gap-2 px-8 py-3 bg-white/10 text-white font-semibold rounded-lg border border-white/30 backdrop-blur-sm hover:bg-gradient-to-r hover:from-electric-600/80 hover:via-cyan-600/80 hover:to-neon-700/80 hover:border-transparent transition-all duration-300"
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{
