@@ -51,6 +51,19 @@ const COLOR_MAP: Record<string, { bg: string; text: string; border: string; acce
 };
 const FALLBACK_COLORS = COLOR_MAP['Web Design'];
 
+const DOT_COLORS: Record<string, string> = {
+  'Stratégie de Communication': '#38bdf8',
+  'Branding':                   '#38bdf8',
+  'Communication Intégrée':     '#38bdf8',
+  'Campagne Digitale':          '#38bdf8',
+  'Design Visuel':              '#d946ef',
+  'Design Graphique':           '#d946ef',
+  'Photographie / Création Visuelle': '#f59e0b',
+  'Web Design':                 '#22d3ee',
+  'Développement Web':          '#22d3ee',
+};
+const FALLBACK_DOT = '#22d3ee';
+
 const slideVariants = {
   enter: (d: number) => ({ x: d > 0 ? '55%' : '-55%', opacity: 0, scale: 0.96 }),
   center: { x: 0, opacity: 1, scale: 1 },
@@ -113,6 +126,7 @@ export function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
   const p = language === 'en' ? { ...project, ...project.en } : project;
   const gallery = project.images && project.images.length > 0 ? project.images : [project.image];
   const colors = COLOR_MAP[project.category] ?? FALLBACK_COLORS;
+  const dotColor = DOT_COLORS[project.category] ?? FALLBACK_DOT;
   const multi = gallery.length > 1;
 
   const L = language === 'en'
@@ -266,119 +280,191 @@ export function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
               </motion.aside>
             </div>
 
-            {/* ── Carrousel galerie ── */}
+            {/* ── Galerie cinématique ── */}
             {multi && (
               <motion.div
-                className="mt-12"
-                initial={{ opacity: 0, y: 20 }}
+                className="mt-16"
+                initial={{ opacity: 0, y: 24 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.45, duration: 0.5 }}
+                transition={{ delay: 0.45, duration: 0.55 }}
               >
-                <div className="flex items-center gap-3 mb-5">
-                  <span className={`text-[10px] font-bold uppercase tracking-[0.22em] ${colors.text}`}>
-                    {language === 'en' ? 'Gallery' : 'Galerie'}
-                  </span>
-                  <div className="flex-1 h-px bg-gradient-to-r from-white/10 to-transparent" />
+                {/* Header avec ghost number */}
+                <div className="flex items-end justify-between mb-6">
+                  <div className="flex items-center gap-3">
+                    <span className={`text-[10px] font-bold uppercase tracking-[0.22em] ${colors.text}`}>
+                      {language === 'en' ? 'Gallery' : 'Galerie'}
+                    </span>
+                    <div className="w-12 h-px bg-gradient-to-r from-white/12 to-transparent" />
+                  </div>
+                  {/* Gros numéro fantôme animé */}
+                  <AnimatePresence mode="wait">
+                    <motion.span
+                      key={idx}
+                      initial={{ opacity: 0, y: 12, scale: 0.85 }}
+                      animate={{ opacity: 0.055, y: 0, scale: 1 }}
+                      exit={{ opacity: 0, y: -10, scale: 1.1 }}
+                      transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
+                      className="text-[88px] leading-none font-black tabular-nums text-white pointer-events-none select-none"
+                    >
+                      {String(idx + 1).padStart(2, '0')}
+                    </motion.span>
+                  </AnimatePresence>
                 </div>
 
-                {/* Slide area */}
-                <div className="relative rounded-2xl overflow-hidden select-none bg-dark-900" style={{ height: 'clamp(220px, 48vw, 560px)' }}>
-
-                  {/* Progress bar */}
-                  <div className="absolute top-0 left-0 right-0 h-[3px] bg-white/[0.06] z-20 pointer-events-none">
-                    <motion.div
-                      className="h-full bg-gradient-to-r from-electric-400 via-cyan-400 to-neon-500 rounded-r-full"
-                      animate={{ width: `${((idx + 1) / gallery.length) * 100}%` }}
-                      transition={{ duration: 0.55, ease: [0.25, 0.46, 0.45, 0.94] }}
-                    />
-                  </div>
-
-                  {/* Slides */}
-                  <AnimatePresence custom={dir} mode="sync">
-                    <motion.div
-                      key={idx}
-                      custom={dir}
-                      variants={slideVariants}
-                      initial="enter"
-                      animate="center"
-                      exit="exit"
-                      transition={slideTx}
-                      className="absolute inset-0"
-                    >
-                      <motion.img
-                        src={gallery[idx]}
-                        alt={`${project.title} — visuel ${idx + 1}`}
-                        className="w-full h-full object-cover"
-                        initial={{ scale: 1.07 }}
-                        animate={{ scale: 1.0 }}
-                        transition={{ duration: 8, ease: 'linear' }}
-                        onError={(e) => {
-                          (e.currentTarget as HTMLImageElement).src =
-                            'https://images.unsplash.com/photo-1461749280684-ddefd3b3e3f7?w=1200&h=700&fit=crop';
-                        }}
-                      />
-                    </motion.div>
-                  </AnimatePresence>
-
-                  {/* Drag to swipe */}
+                {/* Stage */}
+                <div className="relative">
+                  {/* Ambient glow pulsant */}
                   <motion.div
-                    className="absolute inset-0 z-10 cursor-grab active:cursor-grabbing"
-                    drag="x"
-                    dragConstraints={{ left: 0, right: 0 }}
-                    dragElastic={0.1}
-                    onDragEnd={(_, info) => {
-                      if (info.offset.x < -45) paginate(1, gallery.length);
-                      else if (info.offset.x > 45) paginate(-1, gallery.length);
-                    }}
+                    className="absolute inset-x-[12%] inset-y-[8%] rounded-full blur-[80px] pointer-events-none"
+                    style={{ background: dotColor, zIndex: 0 }}
+                    animate={{ opacity: [0.15, 0.32, 0.15], scale: [1, 1.06, 1] }}
+                    transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
                   />
 
-                  {/* Gradient bottom */}
-                  <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-dark-950/60 to-transparent pointer-events-none z-[5]" />
+                  {/* Cadre principal */}
+                  <div
+                    className="relative rounded-2xl overflow-hidden select-none"
+                    style={{ aspectRatio: '16/9', zIndex: 1, boxShadow: `0 0 0 1px rgba(255,255,255,0.07), 0 25px 60px rgba(0,0,0,0.7), 0 0 80px ${dotColor}22` }}
+                  >
+                    {/* Barre de progression */}
+                    <div className="absolute inset-x-0 top-0 h-[2px] z-30 pointer-events-none" style={{ background: 'rgba(255,255,255,0.06)' }}>
+                      <motion.div
+                        className="h-full bg-gradient-to-r from-electric-400 via-cyan-400 to-neon-500"
+                        animate={{ width: `${((idx + 1) / gallery.length) * 100}%` }}
+                        transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
+                      />
+                    </div>
 
-                  {/* Counter */}
-                  <div className="absolute top-4 right-4 z-20 px-3 py-1.5 rounded-full bg-black/55 backdrop-blur-sm border border-white/[0.12] text-xs font-bold text-white tabular-nums pointer-events-none">
-                    {String(idx + 1).padStart(2, '0')} / {String(gallery.length).padStart(2, '0')}
+                    {/* Slides */}
+                    <AnimatePresence custom={dir} mode="sync">
+                      <motion.div
+                        key={idx}
+                        custom={dir}
+                        variants={slideVariants}
+                        initial="enter"
+                        animate="center"
+                        exit="exit"
+                        transition={slideTx}
+                        className="absolute inset-0"
+                      >
+                        <motion.img
+                          src={gallery[idx]}
+                          alt={`${project.title} — visuel ${idx + 1}`}
+                          className="w-full h-full object-cover"
+                          initial={{ scale: 1.06 }}
+                          animate={{ scale: 1 }}
+                          transition={{ duration: 7, ease: 'linear' }}
+                          onError={(e) => { (e.currentTarget as HTMLImageElement).src = 'https://images.unsplash.com/photo-1461749280684-ddefd3b3e3f7?w=1200&h=700&fit=crop'; }}
+                        />
+                      </motion.div>
+                    </AnimatePresence>
+
+                    {/* Drag-to-swipe */}
+                    <motion.div
+                      className="absolute inset-0 z-10 cursor-grab active:cursor-grabbing"
+                      drag="x"
+                      dragConstraints={{ left: 0, right: 0 }}
+                      dragElastic={0.08}
+                      onDragEnd={(_, info) => {
+                        if (info.offset.x < -50) paginate(1, gallery.length);
+                        else if (info.offset.x > 50) paginate(-1, gallery.length);
+                      }}
+                    />
+
+                    {/* Zone gauche cliquable (invisible, révèle chevron au survol) */}
+                    <button
+                      onClick={() => paginate(-1, gallery.length)}
+                      className="absolute left-0 top-0 bottom-0 w-[28%] z-20 group
+                                 flex items-center justify-start pl-5
+                                 bg-gradient-to-r from-transparent to-transparent
+                                 hover:from-black/50 transition-all duration-300"
+                      aria-label="Précédent"
+                    >
+                      <motion.svg
+                        className="w-9 h-9 text-white drop-shadow-xl"
+                        fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}
+                        initial={{ opacity: 0, x: 6 }}
+                        whileHover={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.2 }}
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+                      </motion.svg>
+                    </button>
+
+                    {/* Zone droite cliquable */}
+                    <button
+                      onClick={() => paginate(1, gallery.length)}
+                      className="absolute right-0 top-0 bottom-0 w-[28%] z-20 group
+                                 flex items-center justify-end pr-5
+                                 bg-gradient-to-l from-transparent to-transparent
+                                 hover:from-black/50 transition-all duration-300"
+                      aria-label="Suivant"
+                    >
+                      <motion.svg
+                        className="w-9 h-9 text-white drop-shadow-xl"
+                        fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}
+                        initial={{ opacity: 0, x: -6 }}
+                        whileHover={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.2 }}
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                      </motion.svg>
+                    </button>
+
+                    {/* Gradient bas */}
+                    <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/60 to-transparent pointer-events-none z-[5]" />
+
+                    {/* Live counter */}
+                    <div className="absolute bottom-3.5 left-4 z-20 flex items-center gap-2 pointer-events-none">
+                      <motion.span
+                        className="w-[7px] h-[7px] rounded-full"
+                        style={{ background: dotColor }}
+                        animate={{ opacity: [1, 0.3, 1] }}
+                        transition={{ duration: 1.6, repeat: Infinity, ease: 'easeInOut' }}
+                      />
+                      <span className="text-[11px] font-bold text-white/80 tabular-nums">
+                        {String(idx + 1).padStart(2, '0')} / {String(gallery.length).padStart(2, '0')}
+                      </span>
+                    </div>
                   </div>
+                </div>
 
-                  {/* Arrows */}
-                  <button
-                    onClick={() => paginate(-1, gallery.length)}
-                    className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-11 h-11 flex items-center justify-center rounded-full bg-black/40 backdrop-blur-sm border border-white/[0.12] text-white/65 hover:text-white hover:bg-black/65 hover:border-white/25 transition-all duration-200"
-                    aria-label="Image précédente"
-                  >
-                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
-                    </svg>
-                  </button>
-                  <button
-                    onClick={() => paginate(1, gallery.length)}
-                    className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-11 h-11 flex items-center justify-center rounded-full bg-black/40 backdrop-blur-sm border border-white/[0.12] text-white/65 hover:text-white hover:bg-black/65 hover:border-white/25 transition-all duration-200"
-                    aria-label="Image suivante"
-                  >
-                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                    </svg>
-                  </button>
+                {/* Pill dots navigation */}
+                <div className="flex items-center justify-center gap-2 mt-6">
+                  {gallery.map((_, i) => (
+                    <motion.button
+                      key={i}
+                      onClick={() => setSlide([i, i > idx ? 1 : -1])}
+                      className="h-[5px] rounded-full cursor-pointer"
+                      animate={{
+                        width: i === idx ? 36 : 7,
+                        backgroundColor: i === idx ? dotColor : 'rgba(255,255,255,0.18)',
+                      }}
+                      transition={{ duration: 0.35, ease: [0.25, 0.46, 0.45, 0.94] }}
+                      aria-label={`Image ${i + 1}`}
+                    />
+                  ))}
                 </div>
 
                 {/* Filmstrip */}
-                <div className="flex gap-2 mt-3 overflow-x-auto pb-1">
+                <div className="flex gap-2.5 mt-4 overflow-x-auto pb-1">
                   {gallery.map((img, i) => (
                     <motion.button
                       key={i}
                       onClick={() => setSlide([i, i > idx ? 1 : -1])}
-                      className="relative shrink-0 rounded-lg overflow-hidden"
-                      style={{ width: 82, height: 54 }}
-                      animate={{ opacity: idx === i ? 1 : 0.32, scale: idx === i ? 1 : 0.93 }}
-                      transition={{ duration: 0.22 }}
+                      className="relative shrink-0 rounded-xl overflow-hidden"
+                      style={{ width: 92, height: 60 }}
+                      animate={{
+                        opacity: idx === i ? 1 : 0.27,
+                        scale: idx === i ? 1.05 : 0.94,
+                        boxShadow: idx === i
+                          ? `0 0 0 2px ${dotColor}, 0 0 20px ${dotColor}55`
+                          : '0 0 0 1px rgba(255,255,255,0.07)',
+                      }}
+                      whileHover={{ opacity: 0.75, scale: 1 }}
+                      transition={{ duration: 0.25, ease: [0.25, 0.46, 0.45, 0.94] }}
                     >
                       <img src={img} alt="" className="w-full h-full object-cover" />
-                      {idx === i && (
-                        <motion.div
-                          layoutId="filmThumb"
-                          className={`absolute inset-0 rounded-lg border-2 ${colors.border} shadow-[0_0_12px_rgba(56,189,248,0.35)]`}
-                        />
-                      )}
                     </motion.button>
                   ))}
                 </div>
