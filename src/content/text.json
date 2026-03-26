@@ -16,8 +16,8 @@
       "domains": "Domaines d'expertise & Passions",
       "skills": ["Stratégie de Communication", "Marketing Digital", "Design Visuel", "Branding", "Web Design", "Création de Contenu"],
       "interests": ["IA et Technologie", "Jeux Vidéo", "Nature et Aventure", "Sensation Forte", "Sport et Design"],
-      "education": "Formation",
-      "experience": "Expérience",
+      "education": "Formations",
+      "experience": "Expériences",
       "timeline": [
         {
           "date": "2020 - 2022",
@@ -92,7 +92,7 @@
       "skills": ["Communication Strategy", "Digital Marketing", "Visual Design", "Branding", "Web Design", "Content Creation"],
       "interests": ["AI & Technology", "Video Games", "Nature & Adventure", "Thrill Seeking", "Sport & Design"],
       "education": "Education",
-      "experience": "Experience",
+      "experience": "Experiences",
       "timeline": [
         {
           "date": "2020 - 2022",
