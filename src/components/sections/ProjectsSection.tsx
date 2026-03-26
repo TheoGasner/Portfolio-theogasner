@@ -79,7 +79,7 @@ function ProjectCard({ project, index, onClick, language }: { project: Project; 
       transition={{ duration: 0.5, delay: index * 0.07 }}
       exit={{ opacity: 0, scale: 0.95 }}
       whileHover={{ y: -8, scale: 1.015 }}
-      className={`group cursor-pointer rounded-2xl overflow-hidden bg-dark-800 border transition-all duration-300 flex flex-col relative ${cardBorder}`}
+      className={`group cursor-pointer rounded-2xl overflow-hidden bg-dark-800 border-2 transition-all duration-300 flex flex-col relative ${cardBorder}`}
       onClick={onClick}
     >
       {/* Glow top-edge on hover — color matches category */}
