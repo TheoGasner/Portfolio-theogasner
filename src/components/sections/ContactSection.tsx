@@ -9,6 +9,13 @@ type Status = 'idle' | 'loading' | 'success' | 'error';
 export function ContactSection() {
   const { t, language } = useLanguage();
   const [status, setStatus] = useState<Status>('idle');
+  const [copied, setCopied] = useState(false);
+
+  const copyEmail = () => {
+    navigator.clipboard.writeText('gasnertheo@gmail.com');
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
   const [form, setForm] = useState({ from_name: '', from_email: '', subject: '', message: '' });
 
   const isEn = language === 'en';
@@ -29,6 +36,7 @@ export function ContactSection() {
     successMsg:  isEn ? 'Your message was sent! I will reply very soon.' : 'Ton message a bien ete envoye ! Je te repondrai tres vite.',
     errorMsg:    isEn ? 'An error occurred. Check your connection or try again later.' : 'Une erreur est survenue. Verifie ta connexion ou reessaie plus tard.',
     visitProfile: isEn ? 'Visit my profile' : 'Visitez mon profil',
+    copied:      isEn ? 'Copied!'           : 'Copié !',
     phone:       isEn ? 'Phone'            : 'Telephone',
   };
 
@@ -117,7 +125,7 @@ export function ContactSection() {
             </form>
           </motion.div>
           <motion.div className="space-y-6" initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
-            <motion.a href="mailto:gasnertheo@gmail.com" className="group block glass-dark p-6 rounded-xl hover:shadow-glow transition-all" whileHover={{ x: 6, scale: 1.02, transition: { duration: 0.2 } }} whileTap={{ scale: 0.97 }}>
+            <motion.button onClick={copyEmail} className="group block w-full text-left glass-dark p-6 rounded-xl hover:shadow-glow transition-all relative overflow-hidden" whileHover={{ x: 6, scale: 1.02, transition: { duration: 0.2 } }} whileTap={{ scale: 0.97 }}>
               <div className="mb-3">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-8 h-8 text-electric-400">
                   <path d="M1.5 8.67v8.58a3 3 0 0 0 3 3h15a3 3 0 0 0 3-3V8.67l-8.928 5.493a3 3 0 0 1-3.144 0L1.5 8.67z" />
@@ -126,7 +134,17 @@ export function ContactSection() {
               </div>
               <h3 className="font-semibold text-white mb-1 group-hover:text-electric-400 transition-colors">Email</h3>
               <p className="text-gray-200 group-hover:text-white transition-colors">gasnertheo@gmail.com</p>
-            </motion.a>
+              {copied && (
+                <motion.span
+                  initial={{ opacity: 0, y: 6 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0 }}
+                  className="absolute top-3 right-4 text-xs font-semibold text-green-400 bg-dark-800 px-2 py-1 rounded-md"
+                >
+                  {labels.copied}
+                </motion.span>
+              )}
+            </motion.button>
             <motion.a href="tel:07662826249" className="group block glass-dark p-6 rounded-xl hover:shadow-glow transition-all" whileHover={{ x: 6, scale: 1.02, transition: { duration: 0.2 } }} whileTap={{ scale: 0.97 }}>
               <div className="mb-3">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-8 h-8 text-cyan-400">
