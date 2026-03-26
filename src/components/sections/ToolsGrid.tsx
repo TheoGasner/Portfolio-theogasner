@@ -6,7 +6,7 @@ import figma from '../../assets/tools/figma.svg';
 import photoshop from '../../assets/tools/photoshop.svg';
 import illustrator from '../../assets/tools/illustrator.svg';
 import react from '../../assets/tools/react.svg';
-import nextjs from '../../assets/tools/nextjs.svg';
+import nextjs from '../../assets/tools/Nextjs.svg';
 import tailwind from '../../assets/tools/tailwind.svg';
 import wordpress from '../../assets/tools/wordpress.svg';
 import github from '../../assets/tools/github.svg';
