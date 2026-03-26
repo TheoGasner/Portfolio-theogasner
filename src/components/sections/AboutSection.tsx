@@ -142,7 +142,7 @@ export function AboutSection() {
             */}
             <div>
               <h3 className="text-sm font-grotesk font-bold text-electric-400 mb-4 uppercase tracking-widest">
-                ✨ {t('about.domains') || 'Domaines d\'expertise & Passions'}
+                {t('about.domains') || 'Domaines d\'expertise & Passions'}
               </h3>
 
               <div className="flex flex-wrap gap-3">
