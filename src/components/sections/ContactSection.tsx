@@ -139,7 +139,7 @@ export function ContactSection() {
                   initial={{ opacity: 0, y: 6 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0 }}
-                  className="absolute top-3 right-4 text-xs font-semibold text-green-400 bg-dark-800 px-2 py-1 rounded-md"
+                  className="absolute top-3 right-4 text-xs font-semibold text-electric-400 bg-dark-800 px-2 py-1 rounded-md"
                 >
                   {labels.copied}
                 </motion.span>
