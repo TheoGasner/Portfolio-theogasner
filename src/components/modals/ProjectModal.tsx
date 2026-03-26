@@ -1,5 +1,6 @@
-import { motion, AnimatePresence } from 'framer-motion';
+﻿import { motion, AnimatePresence } from 'framer-motion';
 import { useEffect, useState } from 'react';
+import type { ReactNode } from 'react';
 import { useLanguage } from '../../hooks/useLanguage';
 
 interface ProjectEn {
@@ -37,71 +38,86 @@ interface ProjectModalProps {
   onClose: () => void;
 }
 
-const CATEGORY_COLORS: Record<string, { bg: string; text: string; border: string }> = {
-  'Stratégie de Communication':       { bg: 'bg-electric-500/15', text: 'text-electric-400', border: 'border-electric-500/30' },
-  'Branding':                         { bg: 'bg-electric-500/15', text: 'text-electric-400', border: 'border-electric-500/30' },
-  'Communication Intégrée':           { bg: 'bg-electric-500/15', text: 'text-electric-400', border: 'border-electric-500/30' },
-  'Campagne Digitale':                { bg: 'bg-electric-500/15', text: 'text-electric-400', border: 'border-electric-500/30' },
-  'Design Visuel':                    { bg: 'bg-neon-600/15',     text: 'text-neon-400',     border: 'border-neon-600/30' },
-  'Design Graphique':                 { bg: 'bg-neon-600/15',     text: 'text-neon-400',     border: 'border-neon-600/30' },
-  'Photographie / Création Visuelle': { bg: 'bg-amber-500/15',   text: 'text-amber-400',    border: 'border-amber-500/30' },
-  'Web Design':                       { bg: 'bg-cyan-500/15',     text: 'text-cyan-400',     border: 'border-cyan-500/30' },
-  'Développement Web':                { bg: 'bg-cyan-500/15',     text: 'text-cyan-400',     border: 'border-cyan-500/30' },
+const COLOR_MAP: Record<string, { bg: string; text: string; border: string; accent: string }> = {
+  'Stratégie de Communication':       { bg: 'bg-electric-500/15', text: 'text-electric-400', border: 'border-electric-500/30', accent: 'border-electric-500/60' },
+  'Branding':                         { bg: 'bg-electric-500/15', text: 'text-electric-400', border: 'border-electric-500/30', accent: 'border-electric-500/60' },
+  'Communication Intégrée':           { bg: 'bg-electric-500/15', text: 'text-electric-400', border: 'border-electric-500/30', accent: 'border-electric-500/60' },
+  'Campagne Digitale':                { bg: 'bg-electric-500/15', text: 'text-electric-400', border: 'border-electric-500/30', accent: 'border-electric-500/60' },
+  'Design Visuel':                    { bg: 'bg-neon-600/15',     text: 'text-neon-400',     border: 'border-neon-600/30',     accent: 'border-neon-600/60' },
+  'Design Graphique':                 { bg: 'bg-neon-600/15',     text: 'text-neon-400',     border: 'border-neon-600/30',     accent: 'border-neon-600/60' },
+  'Photographie / Création Visuelle': { bg: 'bg-amber-500/15',   text: 'text-amber-400',    border: 'border-amber-500/30',   accent: 'border-amber-500/60' },
+  'Web Design':                       { bg: 'bg-cyan-500/15',     text: 'text-cyan-400',     border: 'border-cyan-500/30',    accent: 'border-cyan-500/60' },
+  'Développement Web':                { bg: 'bg-cyan-500/15',     text: 'text-cyan-400',     border: 'border-cyan-500/30',    accent: 'border-cyan-500/60' },
 };
+const FALLBACK_COLORS = COLOR_MAP['Web Design'];
 
-function SectionBlock({ label, children, delay = 0 }: { label: string; children: React.ReactNode; delay?: number }) {
+const slideVariants = {
+  enter: (d: number) => ({ x: d > 0 ? '55%' : '-55%', opacity: 0, scale: 0.96 }),
+  center: { x: 0, opacity: 1, scale: 1 },
+  exit:  (d: number) => ({ x: d > 0 ? '-55%' : '55%', opacity: 0, scale: 0.96 }),
+};
+const slideTx = { duration: 0.55, ease: [0.32, 0.72, 0, 1] as [number, number, number, number] };
+
+function SectionBlock({ label, children, delay = 0, accentText = 'text-electric-400' }: {
+  label: string; children: ReactNode; delay?: number; accentText?: string;
+}) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 12 }}
+      initial={{ opacity: 0, y: 14 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ delay, duration: 0.4 }}
-      className="mb-10"
+      transition={{ delay, duration: 0.45, ease: [0.25, 0.46, 0.45, 0.94] }}
+      className="mb-9"
     >
-      <div className="flex items-center gap-3 mb-4">
-        <span className="text-xs font-bold uppercase tracking-[0.15em] text-electric-400">{label}</span>
-        <div className="flex-1 h-px bg-gradient-to-r from-electric-500/40 to-transparent" />
+      <div className="flex items-center gap-3 mb-3">
+        <span className={`text-[10px] font-bold uppercase tracking-[0.22em] ${accentText}`}>{label}</span>
+        <div className="flex-1 h-px bg-gradient-to-r from-white/10 to-transparent" />
       </div>
       {children}
     </motion.div>
   );
 }
 
-const slideVariants = {
-  enter: (dir: number) => ({ x: dir > 0 ? '100%' : '-100%', opacity: 0 }),
-  center: { x: 0, opacity: 1 },
-  exit:  (dir: number) => ({ x: dir > 0 ? '-100%' : '100%', opacity: 0 }),
-};
+function MetaItem({ label, borderCls, children }: { label: string; borderCls: string; children: ReactNode }) {
+  return (
+    <div className={`pl-4 border-l-2 ${borderCls}`}>
+      <p className="text-[10px] text-gray-400 uppercase tracking-[0.18em] mb-2">{label}</p>
+      {children}
+    </div>
+  );
+}
 
 export function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
   const { language } = useLanguage();
-  const [activeImg, setActiveImg] = useState(0);
-  const [[carouselIdx, carouselDir], setCarousel] = useState<[number, number]>([0, 0]);
+  const [[idx, dir], setSlide] = useState<[number, number]>([0, 0]);
 
-  const paginate = (dir: number, len: number) =>
-    setCarousel(([idx]) => [((idx + dir) % len + len) % len, dir]);
+  const paginate = (d: number, len: number) =>
+    setSlide(([i]) => [((i + d) % len + len) % len, d]);
 
-  useEffect(() => { setActiveImg(0); setCarousel([0, 0]); }, [project?.id]);
+  useEffect(() => { setSlide([0, 0]); }, [project?.id]);
 
   useEffect(() => {
-    const handleEscape = (e: KeyboardEvent) => { if (e.key === 'Escape') onClose(); };
-    if (isOpen) {
-      window.addEventListener('keydown', handleEscape);
-      document.body.style.overflow = 'hidden';
-    }
-    return () => {
-      window.removeEventListener('keydown', handleEscape);
-      document.body.style.overflow = 'auto';
+    const galleryLen = (project?.images?.length ?? 0) > 0 ? project!.images!.length : 1;
+    const onKey = (e: KeyboardEvent) => {
+      if (!isOpen) return;
+      if (e.key === 'Escape') { onClose(); return; }
+      if (e.key === 'ArrowRight') setSlide(([i]) => [((i + 1) % galleryLen + galleryLen) % galleryLen, 1]);
+      if (e.key === 'ArrowLeft')  setSlide(([i]) => [((i - 1) % galleryLen + galleryLen) % galleryLen, -1]);
     };
-  }, [isOpen, onClose]);
+    window.addEventListener('keydown', onKey);
+    if (isOpen) document.body.style.overflow = 'hidden';
+    return () => { window.removeEventListener('keydown', onKey); document.body.style.overflow = 'auto'; };
+  }, [isOpen, onClose, project?.id]);
 
   if (!project) return null;
 
   const p = language === 'en' ? { ...project, ...project.en } : project;
   const gallery = project.images && project.images.length > 0 ? project.images : [project.image];
-  const colors = CATEGORY_COLORS[project.category] ?? { bg: 'bg-electric-500/15', text: 'text-electric-400', border: 'border-electric-500/30' };
-  const labels = language === 'en'
-    ? { back: 'Back to projects', role: 'Role', tools: 'Tools', results: 'Results', summary: 'Summary', concept: 'Concept', objectives: 'Objectives', context: 'Context', gallery: 'Gallery' }
-    : { back: 'Retour aux projets', role: 'Rôle', tools: 'Outils', results: 'Résultats', summary: 'Résumé', concept: 'Concept', objectives: 'Objectifs', context: 'Contexte', gallery: 'Galerie' };
+  const colors = COLOR_MAP[project.category] ?? FALLBACK_COLORS;
+  const multi = gallery.length > 1;
+
+  const L = language === 'en'
+    ? { back: 'Back', role: 'Role', tools: 'Tools', results: 'Key results', summary: 'Overview', concept: 'Concept', objectives: 'Objectives', context: 'Context', visit: 'View live', offline: 'Not available online' }
+    : { back: 'Retour', role: 'Rôle', tools: 'Outils', results: 'Résultats', summary: 'Résumé', concept: 'Concept', objectives: 'Objectifs', context: 'Contexte', visit: 'Voir en ligne', offline: 'Non disponible en ligne' };
 
   return (
     <AnimatePresence>
@@ -111,285 +127,261 @@ export function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.3 }}
+          transition={{ duration: 0.25 }}
         >
-          {/* Top bar */}
-          <div className="sticky top-0 z-20 flex items-center justify-between px-6 md:px-12 py-4 bg-dark-950/90 backdrop-blur-md border-b border-white/6">
+
+          {/* ── Top bar ── */}
+          <div className="sticky top-0 z-30 flex items-center justify-between px-5 md:px-10 py-3.5 bg-dark-950/85 backdrop-blur-2xl border-b border-white/[0.05]">
             <button
               onClick={onClose}
-              className="flex items-center gap-2 text-sm text-gray-200 hover:text-white transition-colors duration-200 group"
+              className="group flex items-center gap-2 text-sm font-medium text-gray-300 hover:text-white transition-colors duration-150"
             >
-              <svg className="w-4 h-4 transition-transform duration-200 group-hover:-translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+              <svg className="w-4 h-4 transition-transform duration-200 group-hover:-translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2.5}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
               </svg>
-              <span>{labels.back}</span>
+              {L.back}
             </button>
-            <span className={`px-3 py-1 text-xs font-semibold rounded-full border ${colors.bg} ${colors.text} ${colors.border}`}>
-              {p.category}
-            </span>
+            <div className="flex items-center gap-2.5">
+              <span className={`hidden sm:inline-flex px-3 py-1 text-[11px] font-bold uppercase tracking-wider rounded-full border ${colors.bg} ${colors.text} ${colors.border}`}>
+                {p.category}
+              </span>
+              {project.link && (
+                <a href={project.link} target="_blank" rel="noopener noreferrer"
+                  className="flex items-center gap-1.5 px-3 py-1 text-[11px] font-semibold text-white/75 bg-white/[0.07] border border-white/[0.12] rounded-full hover:text-white hover:bg-white/[0.14] transition-colors duration-150">
+                  <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                  Live
+                </a>
+              )}
+            </div>
           </div>
 
-          {/* Hero */}
-          <div className="relative w-full h-[55vh] overflow-hidden">
-            <AnimatePresence mode="wait">
-              <motion.img
-                key={activeImg}
-                src={gallery[activeImg]}
-                alt={project.title}
-                className="w-full h-full object-cover"
-                initial={{ opacity: 0, scale: 1.04 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.5 }}
-                onError={(e) => {
-                  (e.currentTarget as HTMLImageElement).src = 'https://images.unsplash.com/photo-1461749280684-ddefd3b3e3f7?w=1200&h=700&fit=crop';
+          {/* ── Carousel hero ── */}
+          <div className="relative w-full select-none overflow-hidden" style={{ height: 'clamp(280px, 56vh, 660px)' }}>
+
+            {/* Progress bar */}
+            <div className="absolute top-0 left-0 right-0 h-[3px] bg-white/[0.06] z-20 pointer-events-none">
+              <motion.div
+                className="h-full bg-gradient-to-r from-electric-400 via-cyan-400 to-neon-500 rounded-r-full"
+                animate={{ width: `${((idx + 1) / gallery.length) * 100}%` }}
+                transition={{ duration: 0.55, ease: [0.25, 0.46, 0.45, 0.94] }}
+              />
+            </div>
+
+            {/* Slides */}
+            <AnimatePresence custom={dir} mode="sync">
+              <motion.div
+                key={idx}
+                custom={dir}
+                variants={slideVariants}
+                initial="enter"
+                animate="center"
+                exit="exit"
+                transition={slideTx}
+                className="absolute inset-0"
+              >
+                <motion.img
+                  src={gallery[idx]}
+                  alt={`${project.title} — visuel ${idx + 1}`}
+                  className="w-full h-full object-cover"
+                  initial={{ scale: 1.07 }}
+                  animate={{ scale: 1.0 }}
+                  transition={{ duration: 8, ease: 'linear' }}
+                  onError={(e) => {
+                    (e.currentTarget as HTMLImageElement).src =
+                      'https://images.unsplash.com/photo-1461749280684-ddefd3b3e3f7?w=1200&h=700&fit=crop';
+                  }}
+                />
+              </motion.div>
+            </AnimatePresence>
+
+            {/* Drag to swipe */}
+            {multi && (
+              <motion.div
+                className="absolute inset-0 z-10 cursor-grab active:cursor-grabbing"
+                drag="x"
+                dragConstraints={{ left: 0, right: 0 }}
+                dragElastic={0.1}
+                onDragEnd={(_, info) => {
+                  if (info.offset.x < -45) paginate(1, gallery.length);
+                  else if (info.offset.x > 45) paginate(-1, gallery.length);
                 }}
               />
-            </AnimatePresence>
-            <div className="absolute inset-0 bg-gradient-to-t from-dark-950 via-dark-950/30 to-transparent" />
+            )}
 
-            {/* Title over hero */}
-            <div className="absolute bottom-0 left-0 right-0 px-6 md:px-16 pb-10">
+            {/* Overlay gradients */}
+            <div className="absolute inset-0 bg-gradient-to-t from-dark-950 via-dark-950/15 to-transparent pointer-events-none z-[5]" />
+            <div className="absolute inset-0 bg-gradient-to-r from-dark-950/55 to-transparent pointer-events-none z-[5]" />
+
+            {/* Title */}
+            <div className="absolute bottom-0 left-0 right-0 px-6 md:px-12 pb-8 z-10 pointer-events-none">
               <motion.h1
-                className="text-4xl md:text-6xl lg:text-7xl font-grotesk font-bold leading-none"
+                className="text-4xl md:text-5xl lg:text-6xl font-grotesk font-bold tracking-tight leading-none"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.15, duration: 0.5 }}
+                transition={{ delay: 0.1, duration: 0.5 }}
               >
                 {project.title}
               </motion.h1>
             </div>
+
+            {/* Counter */}
+            {multi && (
+              <div className="absolute top-5 right-5 z-20 px-3 py-1.5 rounded-full bg-black/55 backdrop-blur-sm border border-white/[0.12] text-xs font-bold text-white tabular-nums pointer-events-none">
+                {String(idx + 1).padStart(2, '0')} / {String(gallery.length).padStart(2, '0')}
+              </div>
+            )}
+
+            {/* Arrows */}
+            {multi && (
+              <>
+                <button
+                  onClick={() => paginate(-1, gallery.length)}
+                  className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-11 h-11 flex items-center justify-center rounded-full bg-black/40 backdrop-blur-sm border border-white/[0.12] text-white/65 hover:text-white hover:bg-black/65 hover:border-white/25 transition-all duration-200"
+                  aria-label="Image précédente"
+                >
+                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+                  </svg>
+                </button>
+                <button
+                  onClick={() => paginate(1, gallery.length)}
+                  className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-11 h-11 flex items-center justify-center rounded-full bg-black/40 backdrop-blur-sm border border-white/[0.12] text-white/65 hover:text-white hover:bg-black/65 hover:border-white/25 transition-all duration-200"
+                  aria-label="Image suivante"
+                >
+                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                  </svg>
+                </button>
+              </>
+            )}
           </div>
 
-          {/* Thumbnails (if gallery) */}
-          {gallery.length > 1 && (
-            <div className="flex gap-3 px-6 md:px-16 pt-5 pb-2">
-              {gallery.map((img, i) => (
-                <button
-                  key={i}
-                  onClick={() => setActiveImg(i)}
-                  className={`rounded-lg overflow-hidden h-16 w-24 shrink-0 border-2 transition-all duration-200 ${
-                    activeImg === i ? 'border-electric-400 opacity-100 scale-105' : 'border-white/10 opacity-40 hover:opacity-70'
-                  }`}
-                >
-                  <img src={img} alt="" className="w-full h-full object-cover" />
-                </button>
-              ))}
+          {/* ── Filmstrip ── */}
+          {multi && (
+            <div className="py-3 px-5 md:px-10 border-b border-white/[0.04] bg-dark-950">
+              <div className="flex gap-2 overflow-x-auto">
+                {gallery.map((img, i) => (
+                  <motion.button
+                    key={i}
+                    onClick={() => setSlide([i, i > idx ? 1 : -1])}
+                    className="relative shrink-0 rounded-lg overflow-hidden"
+                    style={{ width: 82, height: 54 }}
+                    animate={{ opacity: idx === i ? 1 : 0.32, scale: idx === i ? 1 : 0.93 }}
+                    transition={{ duration: 0.22 }}
+                  >
+                    <img src={img} alt="" className="w-full h-full object-cover" />
+                    {idx === i && (
+                      <motion.div
+                        layoutId="filmThumb"
+                        className={`absolute inset-0 rounded-lg border-2 ${colors.border} shadow-[0_0_12px_rgba(56,189,248,0.35)]`}
+                      />
+                    )}
+                  </motion.button>
+                ))}
+              </div>
             </div>
           )}
 
-          {/* Content */}
-          <div className="max-w-4xl mx-auto px-6 md:px-16 pt-12 pb-24">
+          {/* ── Content ── */}
+          <div className="max-w-5xl mx-auto px-5 md:px-10 pt-10 pb-28">
 
-            {/* Description + meta */}
-            <div className="grid md:grid-cols-3 gap-8 mb-14">
-              {/* Lead text */}
+            <motion.p
+              className="text-[17px] md:text-xl text-white/85 leading-relaxed font-light mb-10 max-w-2xl"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.18, duration: 0.45 }}
+            >
+              {p.description}
+            </motion.p>
+
+            <div className="h-px bg-gradient-to-r from-white/10 via-white/[0.04] to-transparent mb-10" />
+
+            {/* Two-column layout */}
+            <div className="grid md:grid-cols-3 gap-10 lg:gap-16 items-start">
+
+              {/* Left: narrative */}
               <div className="md:col-span-2">
-                <motion.p
-                  className="text-lg md:text-xl text-white leading-relaxed font-light"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 0.2 }}
-                >
-                  {p.description}
-                </motion.p>
+                {project.summary && (
+                  <SectionBlock label={L.summary} delay={0.22} accentText={colors.text}>
+                    <p className="text-gray-300 leading-relaxed text-[15px]">{p.summary}</p>
+                  </SectionBlock>
+                )}
+                {project.concept && (
+                  <SectionBlock label={L.concept} delay={0.28} accentText={colors.text}>
+                    <p className="text-gray-300 leading-relaxed text-[15px]">{p.concept}</p>
+                  </SectionBlock>
+                )}
+                {project.context && (
+                  <SectionBlock label={L.context} delay={0.34} accentText={colors.text}>
+                    <p className="text-gray-300 leading-relaxed text-[15px]">{p.context}</p>
+                  </SectionBlock>
+                )}
+                {project.objectives && (
+                  <SectionBlock label={L.objectives} delay={0.4} accentText={colors.text}>
+                    <p className="text-gray-300 leading-relaxed text-[15px]">{p.objectives}</p>
+                  </SectionBlock>
+                )}
               </div>
-              {/* Meta */}
-              <motion.div
-                className="flex flex-col gap-4"
-                initial={{ opacity: 0, x: 10 }}
+
+              {/* Right: sticky meta */}
+              <motion.aside
+                className="md:sticky md:top-[58px] flex flex-col gap-5 p-5 rounded-2xl bg-white/[0.03] border border-white/[0.07]"
+                initial={{ opacity: 0, x: 18 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.25 }}
+                transition={{ delay: 0.28, duration: 0.5 }}
               >
                 {project.role && (
-                  <div className="border-l-2 border-electric-500/50 pl-4">
-                    <p className="text-xs text-gray-200 uppercase tracking-widest mb-1">{labels.role}</p>
-                    <p className="text-sm text-white font-medium">{p.role}</p>
-                  </div>
+                  <MetaItem label={L.role} borderCls="border-electric-500/50">
+                    <p className="text-sm text-white font-medium leading-snug">{p.role}</p>
+                  </MetaItem>
                 )}
                 {project.tools && project.tools.length > 0 && (
-                  <div className="border-l-2 border-neon-600/50 pl-4">
-                    <p className="text-xs text-gray-200 uppercase tracking-widest mb-2">{labels.tools}</p>
+                  <MetaItem label={L.tools} borderCls="border-neon-600/50">
                     <div className="flex flex-wrap gap-1.5">
                       {project.tools.map((tool, i) => (
-                        <span key={i} className="px-2 py-0.5 text-xs text-white bg-white/5 border border-white/10 rounded-md">{tool}</span>
+                        <span key={i} className="px-2 py-0.5 text-xs text-white/70 bg-white/[0.06] border border-white/[0.08] rounded-md">{tool}</span>
                       ))}
                     </div>
-                  </div>
+                  </MetaItem>
                 )}
                 {project.results && (
-                  <div className="border-l-2 border-cyan-500/50 pl-4">
-                    <p className="text-xs text-gray-200 uppercase tracking-widest mb-1">{labels.results}</p>
-                    <p className="text-sm text-white font-medium">{p.results}</p>
-                  </div>
+                  <MetaItem label={L.results} borderCls={colors.accent}>
+                    <p className={`text-sm font-semibold leading-snug ${colors.text}`}>{p.results}</p>
+                  </MetaItem>
                 )}
-              </motion.div>
+                {project.link && (
+                  <a
+                    href={project.link} target="_blank" rel="noopener noreferrer"
+                    className={`mt-1 flex items-center justify-center gap-2 w-full py-2.5 rounded-xl text-sm font-semibold border transition-all duration-200 hover:opacity-80 ${colors.bg} ${colors.text} ${colors.border}`}
+                  >
+                    <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                    {L.visit}
+                  </a>
+                )}
+              </motion.aside>
             </div>
 
-            <div className="h-px bg-gradient-to-r from-electric-500/30 via-neon-600/20 to-transparent mb-12" />
-
-            {/* Summary */}
-            {project.summary && (
-              <SectionBlock label={labels.summary} delay={0.3}>
-                <p className="text-gray-200 leading-relaxed text-base">{p.summary}</p>
-              </SectionBlock>
-            )}
-
-            {/* Concept */}
-            {project.concept && (
-              <SectionBlock label={labels.concept} delay={0.35}>
-                <p className="text-gray-200 leading-relaxed text-base">{p.concept}</p>
-              </SectionBlock>
-            )}
-
-            {/* Objectives */}
-            {project.objectives && (
-              <SectionBlock label={labels.objectives} delay={0.4}>
-                <p className="text-gray-200 leading-relaxed text-base">{p.objectives}</p>
-              </SectionBlock>
-            )}
-
-            {/* Context */}
-            {project.context && (
-              <SectionBlock label={labels.context} delay={0.45}>
-                <p className="text-gray-200 leading-relaxed text-base">{p.context}</p>
-              </SectionBlock>
-            )}
-
-            {/* ── Carousel Galerie ── */}
-            {gallery.length > 0 && (
-              <SectionBlock label={labels.gallery} delay={0.5}>
-                <div className="relative rounded-2xl overflow-hidden bg-dark-900 border border-white/8 select-none">
-                  {/* Slide area */}
-                  <div className="relative h-[520px] overflow-hidden">
-                    <AnimatePresence custom={carouselDir} mode="wait">
-                      <motion.img
-                        key={carouselIdx}
-                        src={gallery[carouselIdx]}
-                        alt={`${project.title} — visuel ${carouselIdx + 1}`}
-                        custom={carouselDir}
-                        variants={slideVariants}
-                        initial="enter"
-                        animate="center"
-                        exit="exit"
-                        transition={{ duration: 0.45, ease: [0.32, 0.72, 0, 1] }}
-                        className="absolute inset-0 w-full h-full object-cover"
-                        onError={(e) => { (e.currentTarget as HTMLImageElement).src = 'https://images.unsplash.com/photo-1461749280684-ddefd3b3e3f7?w=1200&h=700&fit=crop'; }}
-                      />
-                    </AnimatePresence>
-
-                    {/* Gradient overlay bottom */}
-                    <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-dark-950/80 to-transparent pointer-events-none" />
-
-                    {/* Counter badge */}
-                    <div className="absolute top-4 right-4 px-3 py-1.5 rounded-full bg-black/50 backdrop-blur-sm text-xs font-bold text-white border border-white/15">
-                      {carouselIdx + 1} / {gallery.length}
-                    </div>
-
-                    {/* Prev / Next arrows */}
-                    {gallery.length > 1 && (
-                      <>
-                        <button
-                          onClick={() => paginate(-1, gallery.length)}
-                          className="absolute left-4 top-1/2 -translate-y-1/2 z-10 w-11 h-11 rounded-full bg-black/50 backdrop-blur-sm border border-white/15 flex items-center justify-center hover:bg-black/70 hover:border-electric-400/50 hover:text-electric-400 transition-all duration-200 group"
-                          aria-label="Image précédente"
-                        >
-                          <svg className="w-5 h-5 text-white group-hover:text-electric-400 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
-                          </svg>
-                        </button>
-                        <button
-                          onClick={() => paginate(1, gallery.length)}
-                          className="absolute right-4 top-1/2 -translate-y-1/2 z-10 w-11 h-11 rounded-full bg-black/50 backdrop-blur-sm border border-white/15 flex items-center justify-center hover:bg-black/70 hover:border-electric-400/50 transition-all duration-200 group"
-                          aria-label="Image suivante"
-                        >
-                          <svg className="w-5 h-5 text-white group-hover:text-electric-400 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                          </svg>
-                        </button>
-                      </>
-                    )}
-                  </div>
-
-                  {/* Dot indicators + thumbnail strip */}
-                  {gallery.length > 1 && (
-                    <div className="px-5 py-4 flex items-center gap-4">
-                      {/* Thumbnails */}
-                      <div className="flex gap-2 flex-1 overflow-x-auto pb-0.5">
-                        {gallery.map((img, i) => (
-                          <button
-                            key={i}
-                            onClick={() => setCarousel([i, i > carouselIdx ? 1 : -1])}
-                            className={`relative shrink-0 rounded-lg overflow-hidden border-2 transition-all duration-200 ${
-                              carouselIdx === i
-                                ? 'border-electric-400 opacity-100 shadow-[0_0_12px_rgba(14,165,233,0.5)]'
-                                : 'border-white/10 opacity-40 hover:opacity-70 hover:border-white/25'
-                            }`}
-                            style={{ width: 72, height: 48 }}
-                          >
-                            <img src={img} alt="" className="w-full h-full object-cover" />
-                          </button>
-                        ))}
-                      </div>
-                      {/* Dots */}
-                      <div className="flex gap-1.5 shrink-0">
-                        {gallery.map((_, i) => (
-                          <button
-                            key={i}
-                            onClick={() => setCarousel([i, i > carouselIdx ? 1 : -1])}
-                            className={`rounded-full transition-all duration-300 ${
-                              carouselIdx === i
-                                ? 'w-6 h-2 bg-electric-400'
-                                : 'w-2 h-2 bg-white/25 hover:bg-white/50'
-                            }`}
-                            aria-label={`Image ${i + 1}`}
-                          />
-                        ))}
-                      </div>
-                    </div>
-                  )}
-                </div>
-              </SectionBlock>
-            )}
-
-            <div className="h-px bg-gradient-to-r from-electric-500/30 via-neon-600/20 to-transparent mb-10" />
-
-            {/* CTA */}
-            <motion.div
-              className="flex items-center justify-between flex-wrap gap-4"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.55 }}
-            >
-              {project.link ? (
-                <a
-                  href={project.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-3 px-6 py-3.5 rounded-xl bg-electric-500/10 border border-electric-500/40 text-electric-400 font-semibold text-sm hover:bg-electric-500/20 hover:border-electric-400 hover:text-white transition-all duration-200 group"
-                >
-                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                  </svg>
-                  <span>Voir le projet en ligne</span>
-                  <svg className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </a>
-              ) : (
-                <p className="text-sm text-gray-200 italic">Projet non disponible en ligne</p>
-              )}
-
+            {/* Bottom nav */}
+            <div className="mt-16 pt-8 border-t border-white/[0.05] flex items-center justify-between flex-wrap gap-4">
+              {!project.link
+                ? <p className="text-sm text-gray-400 italic">{L.offline}</p>
+                : <span />
+              }
               <button
                 onClick={onClose}
-                className="flex items-center gap-2 text-sm text-gray-200 hover:text-white transition-colors duration-200 group"
+                className="group flex items-center gap-2 text-sm text-gray-300 hover:text-white transition-colors duration-150"
               >
-                <svg className="w-4 h-4 transition-transform duration-200 group-hover:-translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+                <svg className="w-4 h-4 transition-transform duration-200 group-hover:-translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2.5}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
                 </svg>
-                Retour aux projets
+                {L.back}
               </button>
-            </motion.div>
+            </div>
+
           </div>
         </motion.div>
       )}
