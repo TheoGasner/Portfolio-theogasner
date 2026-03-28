@@ -179,22 +179,21 @@ export function Header() {
               className="absolute top-full left-0 right-0 mt-3 rounded-2xl backdrop-blur-md bg-dark-900/80 border border-electric-500/15 overflow-hidden md:hidden"
             >
               {/* Menu items */}
-              <div className="py-4 px-6 space-y-3">
+              <div className="py-4 px-6 space-y-1">
                 {/* Navigation items */}
                 {navItems.map((item: string, index: number) => (
-                  <motion.button
+                  <button
                     key={index}
                     onClick={() => scrollToSection(sectionIds[index])}
-                    className={`w-full text-left text-sm font-medium py-2 px-3 rounded-lg transition-all duration-300 ${
+                    style={{ touchAction: 'manipulation' }}
+                    className={`w-full text-left text-sm font-medium py-3 px-3 rounded-lg transition-all duration-300 ${
                       activeSection === sectionIds[index]
                         ? 'bg-electric-500/20 text-electric-400'
-                        : 'text-gray-200 hover:bg-dark-800/50 hover:text-white'
+                        : 'text-gray-200 active:bg-dark-800/50'
                     }`}
-                    whileHover={{ x: 4 }}
-                    whileTap={{ scale: 0.98 }}
                   >
                     {item}
-                  </motion.button>
+                  </button>
                 ))}
 
                 {/* Divider */}
@@ -204,31 +203,29 @@ export function Header() {
                 <div className="flex items-center gap-2 py-2">
                   <span className="text-xs font-semibold text-gray-300 uppercase">Langue</span>
                   <div className="flex-1" />
-                  <motion.button
+                  <button
                     onClick={() => switchLanguage('fr')}
-                    className={`px-3 py-1.5 text-xs font-semibold rounded-lg transition-all duration-300 ${
+                    style={{ touchAction: 'manipulation' }}
+                    className={`px-4 py-2 text-xs font-semibold rounded-lg transition-all duration-300 ${
                       language === 'fr'
                         ? 'bg-electric-500/20 text-electric-400'
-                        : 'text-gray-200 hover:text-white'
+                        : 'text-gray-200'
                     }`}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
                   >
                     FR
-                  </motion.button>
+                  </button>
                   <span className="text-gray-600">/</span>
-                  <motion.button
+                  <button
                     onClick={() => switchLanguage('en')}
-                    className={`px-3 py-1.5 text-xs font-semibold rounded-lg transition-all duration-300 ${
+                    style={{ touchAction: 'manipulation' }}
+                    className={`px-4 py-2 text-xs font-semibold rounded-lg transition-all duration-300 ${
                       language === 'en'
                         ? 'bg-neon-500/20 text-neon-400'
-                        : 'text-gray-200 hover:text-white'
+                        : 'text-gray-200'
                     }`}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
                   >
                     EN
-                  </motion.button>
+                  </button>
                 </div>
               </div>
             </motion.div>

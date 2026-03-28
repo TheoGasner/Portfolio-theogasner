@@ -38,7 +38,7 @@ export function HeroSection() {
       onMouseLeave={handleMouseLeave}
     >
       {/* Main Content Container */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 py-20 md:py-0 h-full flex items-center justify-center">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 py-20 pb-28 md:py-0 h-full flex items-center justify-center">
         {/* Two-Column Layout: Logo Left, Content Right */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-32 w-full items-center">
 
@@ -79,9 +79,9 @@ export function HeroSection() {
         </div>
       </div>
 
-      {/* Scroll Indicator */}
+      {/* Scroll Indicator - masqué sur mobile pour éviter l'overlap avec le bouton CV */}
       <motion.div
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+        className="hidden md:flex absolute bottom-10 left-1/2 -translate-x-1/2 flex-col items-center gap-2"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 1.2 }}
