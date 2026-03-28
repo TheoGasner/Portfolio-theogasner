@@ -12,7 +12,12 @@
 
 html {
   scroll-behavior: smooth;
-  cursor: none;
+}
+
+@media (pointer: fine) {
+  html {
+    cursor: none;
+  }
 }
 
 body {

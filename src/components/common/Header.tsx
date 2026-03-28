@@ -22,12 +22,14 @@ export function Header() {
   }, []);
 
   const scrollToSection = (section: string) => {
-    const element = document.getElementById(section);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-      setActiveSection(section);
-      setMobileMenuOpen(false);
-    }
+    setActiveSection(section);
+    setMobileMenuOpen(false);
+    setTimeout(() => {
+      const element = document.getElementById(section);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 300);
   };
 
   return (
