@@ -144,11 +144,10 @@ export function Header() {
               </div>
 
               {/* Mobile Menu Button - Only visible on mobile */}
-              <motion.button
+              <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="md:hidden relative w-8 h-8 flex flex-col items-center justify-center gap-1.5 text-gray-200 hover:text-white transition-colors"
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.95 }}
+                style={{ touchAction: 'manipulation' }}
+                className="md:hidden relative w-10 h-10 flex flex-col items-center justify-center gap-1.5 text-gray-200"
               >
                 {/* Hamburger icon */}
                 <motion.span
@@ -163,7 +162,7 @@ export function Header() {
                   className="w-5 h-0.5 bg-current rounded-full transition-all duration-300 origin-center"
                   animate={mobileMenuOpen ? { rotate: -45, y: -8 } : { rotate: 0, y: 0 }}
                 />
-              </motion.button>
+              </button>
             </div>
           </nav>
         </div>
