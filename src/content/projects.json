@@ -6,9 +6,7 @@
     "description": "Campagne intégrée de communication pour la marque ONII, visant à renforcer son identité et engager sa communauté cible.",
     "image": "/assets/images/projects/onii.png",
     "images": [
-      "/assets/images/projects/onii.png",
-      "https://picsum.photos/seed/onii2/1200/700",
-      "https://picsum.photos/seed/onii3/1200/700"
+      "/assets/images/projects/onii.png"
     ],
     "summary": "Projet de stratégie de communication globale pour ONII, une marque cherchant à affirmer son positionnement sur un marché concurrentiel. La mission couvrait l'analyse de marché, la définition de l'identité de marque et la création d'une campagne cohérente sur plusieurs canaux.",
     "concept": "Construire une identité de marque forte et cohérente en s'appuyant sur les valeurs fondatrices d'ONII. Le concept reposait sur une charte graphique épurée, un ton de communication authentique et une stratégie de contenu adaptée aux habitudes de la cible.",
@@ -34,11 +32,9 @@
     "title": "OFFF Festival",
     "category": "Branding",
     "description": "Identité visuelle complète pour le festival OFFF Barcelona, l'un des événements de design et de créativité les plus reconnus au monde.",
-    "image": "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=800&h=600&fit=crop",
+    "image": "/assets/images/projects/offf-festival.png",
     "images": [
-      "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=800&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&h=600&fit=crop"
+      "/assets/images/projects/offf-festival.png"
     ],
     "summary": "Projet de branding réalisé en collaboration avec Antoine Dejeux dans le cadre de notre formation BUT MMI. Concevoir une identité visuelle complète pour le festival OFFF Barcelona — affiche, motion design, goodies.",
     "concept": "S'inspirer du caractère expérimental et avant-gardiste du festival pour créer une identité brute, typographique et en tension. Contraste entre formes géométriques rigides et compositions dynamiques.",
@@ -64,8 +60,8 @@
     "title": "Reworld",
     "category": "Design Visuel",
     "description": "Refonte visuelle de l'interface utilisateur pour Reworld Media, l'un des principaux groupes médias en France.",
-    "image": "/assets/images/projects/Reworld.png",
-    "images": ["/assets/images/projects/Reworld.png"],
+    "image": "/assets/images/projects/reworld.png",
+    "images": ["/assets/images/projects/reworld.png"],
     "summary": "Mission de redesign UX/UI pour la plateforme éditoriale de Reworld Media. Moderniser l'expérience de lecture, améliorer la navigation et optimiser la conversion des visiteurs en abonnés.",
     "concept": "Approche centrée utilisateur en simplifiant radicalement la hiérarchie visuelle. Réduire le bruit visuel pour laisser le contenu au premier plan.",
     "objectives": "Améliorer le taux de rétention, réduire le taux de rebond de 20%, créer un système de composants réutilisables.",
@@ -165,13 +161,12 @@
   },
   {
     "id": 7,
-    "title": "Créations Visuelles",
+    "title": "Chocolart",
     "category": "Design Graphique",
     "description": "Sélection de créations graphiques réalisées pour des événements, communications et projets divers.",
-    "image": "https://images.unsplash.com/photo-1561418892-0f7c2e0b0e66?w=800&h=600&fit=crop",
+    "image": "/assets/images/projects/chocolart.png",
     "images": [
-      "https://images.unsplash.com/photo-1561418892-0f7c2e0b0e66?w=800&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop"
+      "/assets/images/projects/chocolart.png"
     ],
     "summary": "Collection de travaux graphiques produits dans différents contextes : demandes clients, projets universitaires et créations personnelles.",
     "concept": "Chaque création part d'une intention narrative claire. L'enjeu : trouver la tension visuelle juste entre lisibilité et impact esthétique.",
@@ -194,11 +189,11 @@
   },
   {
     "id": 8,
-    "title": "Projets en Alternance",
+    "title": "Cymove",
     "category": "Communication Intégrée",
     "description": "Projets de communication et production vidéo réalisés en alternance au Pôle Véhicule du Futur.",
-    "image": "/assets/images/projects/alternance-projects.png",
-    "images": ["/assets/images/projects/alternance-projects.png"],
+    "image": "/assets/images/projects/cymove.png",
+    "images": ["/assets/images/projects/cymove.png"],
     "summary": "En alternance au Pôle Véhicule du Futur — centre d'innovation dédié à la mobilité de demain — production de contenus pédagogiques vidéo et communications institutionnelles.",
     "concept": "Vulgariser des sujets techniques complexes (véhicule électrique, hydrogène, ADAS) en formats vidéo engageants et accessibles.",
     "objectives": "Produire 12 capsules vidéo pédagogiques, moderniser les templates B2B, créer une bibliothèque d'assets réutilisables.",
@@ -223,10 +218,9 @@
     "title": "Double Exposition — Affiche",
     "category": "Photographie / Création Visuelle",
     "description": "Projet artistique personnel explorant la technique de la double exposition pour créer une affiche narrative.",
-    "image": "https://images.unsplash.com/photo-1611339555312-e607c25352ba?w=800&h=600&fit=crop",
+    "image": "/assets/images/projects/double-expo.png",
     "images": [
-      "https://images.unsplash.com/photo-1611339555312-e607c25352ba?w=800&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=800&h=600&fit=crop"
+      "/assets/images/projects/double-expo.png"
     ],
     "summary": "Exploration de la double exposition : superposition de deux photographies pour créer une image unique. L'affiche associe portrait humain et paysage urbain.",
     "concept": "Superposer un portrait de profil à une vue de ville nocturne pour exprimer la dualité entre identité individuelle et appartenance à un espace urbain.",
