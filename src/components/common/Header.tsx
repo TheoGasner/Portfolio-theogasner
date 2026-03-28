@@ -32,6 +32,14 @@ export function Header() {
   };
 
   return (
+    <>
+    {/* Overlay fermeture menu mobile — HORS du motion.div transformé pour éviter le bug de capture de tap */}
+    {mobileMenuOpen && (
+      <div
+        className="fixed inset-0 z-40 md:hidden"
+        onClick={() => setMobileMenuOpen(false)}
+      />
+    )}
     <header className="fixed top-0 left-0 right-0 z-50 flex justify-center px-4 transition-all duration-500" style={{ paddingTop: isScrolled ? '8px' : '16px' }}>
       {/* Premium container - Centered, Rounded, Semi-transparent */}
       <motion.div
@@ -227,14 +235,6 @@ export function Header() {
           )}
         </AnimatePresence>
 
-        {/* Close menu on scroll or click outside */}
-        <div
-          onClick={() => setMobileMenuOpen(false)}
-          className={`fixed inset-0 z-40 transition-opacity duration-300 md:hidden ${
-            mobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
-          }`}
-        />
       </motion.div>
     </header>
-  );
-}
+    </>
