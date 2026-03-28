@@ -24,12 +24,11 @@ export function Header() {
   const scrollToSection = (section: string) => {
     setActiveSection(section);
     setMobileMenuOpen(false);
-    setTimeout(() => {
-      const element = document.getElementById(section);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
-    }, 300);
+    const element = document.getElementById(section);
+    if (element) {
+      const top = element.getBoundingClientRect().top + window.scrollY - 80;
+      window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
+    }
   };
 
   return (
