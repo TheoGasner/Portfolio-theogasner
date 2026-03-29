@@ -6,7 +6,9 @@
     "description": "Campagne intégrée de communication pour la marque ONII, visant à renforcer son identité et engager sa communauté cible.",
     "image": "/assets/images/projects/onii.png",
     "images": [
-      "/assets/images/projects/onii.png"
+      "/assets/images/projects/onii.png",
+      "https://picsum.photos/seed/onii-b/800/450",
+      "https://picsum.photos/seed/onii-c/800/450"
     ],
     "summary": "Projet de stratégie de communication globale pour ONII, une marque cherchant à affirmer son positionnement sur un marché concurrentiel. La mission couvrait l'analyse de marché, la définition de l'identité de marque et la création d'une campagne cohérente sur plusieurs canaux.",
     "concept": "Construire une identité de marque forte et cohérente en s'appuyant sur les valeurs fondatrices d'ONII. Le concept reposait sur une charte graphique épurée, un ton de communication authentique et une stratégie de contenu adaptée aux habitudes de la cible.",
@@ -34,7 +36,9 @@
     "description": "Identité visuelle complète pour le festival OFFF Barcelona, l'un des événements de design et de créativité les plus reconnus au monde.",
     "image": "/assets/images/projects/offf-festival.png",
     "images": [
-      "/assets/images/projects/offf-festival.png"
+      "/assets/images/projects/offf-festival.png",
+      "https://picsum.photos/seed/offf-b/800/450",
+      "https://picsum.photos/seed/offf-c/800/450"
     ],
     "summary": "Projet de branding réalisé en collaboration avec Antoine Dejeux dans le cadre de notre formation BUT MMI. Concevoir une identité visuelle complète pour le festival OFFF Barcelona — affiche, motion design, goodies.",
     "concept": "S'inspirer du caractère expérimental et avant-gardiste du festival pour créer une identité brute, typographique et en tension. Contraste entre formes géométriques rigides et compositions dynamiques.",
@@ -61,7 +65,7 @@
     "category": "Design Visuel",
     "description": "Refonte visuelle de l'interface utilisateur pour Reworld Media, l'un des principaux groupes médias en France.",
     "image": "/assets/images/projects/reworld.png",
-    "images": ["/assets/images/projects/reworld.png"],
+    "images": ["/assets/images/projects/reworld.png", "https://picsum.photos/seed/reworld-b/800/450", "https://picsum.photos/seed/reworld-c/800/450"],
     "summary": "Mission de redesign UX/UI pour la plateforme éditoriale de Reworld Media. Moderniser l'expérience de lecture, améliorer la navigation et optimiser la conversion des visiteurs en abonnés.",
     "concept": "Approche centrée utilisateur en simplifiant radicalement la hiérarchie visuelle. Réduire le bruit visuel pour laisser le contenu au premier plan.",
     "objectives": "Améliorer le taux de rétention, réduire le taux de rebond de 20%, créer un système de composants réutilisables.",
@@ -87,7 +91,7 @@
     "category": "Web Design",
     "description": "Conception et développement d'un site web complet pour Home of Champions, une plateforme esports premium.",
     "image": "/assets/images/projects/home-of-champions.png",
-    "images": ["/assets/images/projects/home-of-champions.png"],
+    "images": ["/assets/images/projects/home-of-champions.png", "https://picsum.photos/seed/hoc-b/800/450", "https://picsum.photos/seed/hoc-c/800/450"],
     "summary": "Projet de création de site web from scratch pour une plateforme de tournois esports haut de gamme, avec une expérience immersive dès la homepage.",
     "concept": "Créer une expérience sombre et immersive inspirée des esthétiques gaming actuelles, avec effets de particules, transitions fluides et typographie impactante.",
     "objectives": "Développer un site vitrine performant, optimisé SEO, avec un système de leads pour les partenariats esports.",
@@ -113,7 +117,7 @@
     "category": "Campagne Digitale",
     "description": "Stratégie de communication digitale complète pour BSK Esport, de la création de contenu à l'animation communautaire.",
     "image": "/assets/images/projects/bsk-esport.png",
-    "images": ["/assets/images/projects/bsk-esport.png"],
+    "images": ["/assets/images/projects/bsk-esport.png", "https://picsum.photos/seed/bsk-b/800/450", "https://picsum.photos/seed/bsk-c/800/450"],
     "summary": "Prise en charge complète de la communication digitale pour BSK Esport. Mission sur 6 mois : stratégie de contenu, création des visuels, gestion des réseaux et suivi des KPIs.",
     "concept": "Construire une communauté engagée en misant sur la proximité et l'authenticité. Contenus behind-the-scenes, highlights de matchs, interactions quotidiennes.",
     "objectives": "Passer de 2K à 20K followers en 6 mois, augmenter le taux d'engagement moyen à 5%.",
@@ -139,7 +143,7 @@
     "category": "Développement Web",
     "description": "Refonte complète du site WordPress du studio Haroun Animation pour moderniser son image et ses performances.",
     "image": "/assets/images/projects/haroun-animation.png",
-    "images": ["/assets/images/projects/haroun-animation.png"],
+    "images": ["/assets/images/projects/haroun-animation.png", "https://picsum.photos/seed/haroun-b/800/450", "https://picsum.photos/seed/haroun-c/800/450"],
     "summary": "Le studio souhaitait un site à la hauteur de ses productions. Le site existant, vieillissant, nuisait à la crédibilité lors des démarchages clients.",
     "concept": "Laisser les créations du studio parler d'elles-mêmes. Design épuré, espace blanc, transitions douces. La page portfolio comme vitrine principale.",
     "objectives": "Moderniser l'image du studio, améliorer les performances techniques et augmenter les prises de contact.",
@@ -166,7 +170,9 @@
     "description": "Sélection de créations graphiques réalisées pour des événements, communications et projets divers.",
     "image": "/assets/images/projects/chocolart.png",
     "images": [
-      "/assets/images/projects/chocolart.png"
+      "/assets/images/projects/chocolart.png",
+      "https://picsum.photos/seed/choc-b/800/450",
+      "https://picsum.photos/seed/choc-c/800/450"
     ],
     "summary": "Collection de travaux graphiques produits dans différents contextes : demandes clients, projets universitaires et créations personnelles.",
     "concept": "Chaque création part d'une intention narrative claire. L'enjeu : trouver la tension visuelle juste entre lisibilité et impact esthétique.",
@@ -193,7 +199,7 @@
     "category": "Communication Intégrée",
     "description": "Projets de communication et production vidéo réalisés en alternance au Pôle Véhicule du Futur.",
     "image": "/assets/images/projects/cymove.png",
-    "images": ["/assets/images/projects/cymove.png"],
+    "images": ["/assets/images/projects/cymove.png", "https://picsum.photos/seed/cymove-b/800/450", "https://picsum.photos/seed/cymove-c/800/450"],
     "summary": "En alternance au Pôle Véhicule du Futur — centre d'innovation dédié à la mobilité de demain — production de contenus pédagogiques vidéo et communications institutionnelles.",
     "concept": "Vulgariser des sujets techniques complexes (véhicule électrique, hydrogène, ADAS) en formats vidéo engageants et accessibles.",
     "objectives": "Produire 12 capsules vidéo pédagogiques, moderniser les templates B2B, créer une bibliothèque d'assets réutilisables.",
@@ -220,7 +226,9 @@
     "description": "Projet artistique personnel explorant la technique de la double exposition pour créer une affiche narrative.",
     "image": "/assets/images/projects/double-expo.png",
     "images": [
-      "/assets/images/projects/double-expo.png"
+      "/assets/images/projects/double-expo.png",
+      "https://picsum.photos/seed/dexp-b/800/450",
+      "https://picsum.photos/seed/dexp-c/800/450"
     ],
     "summary": "Exploration de la double exposition : superposition de deux photographies pour créer une image unique. L'affiche associe portrait humain et paysage urbain.",
     "concept": "Superposer un portrait de profil à une vue de ville nocturne pour exprimer la dualité entre identité individuelle et appartenance à un espace urbain.",
