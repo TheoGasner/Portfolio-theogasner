@@ -350,7 +350,7 @@ export function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
               );
             })()}
 
-            {/* ── Galerie cinématique ── */}
+            {/* ── Galerie cinématique (seulement si plusieurs images) ── */}
             {multi && (
               <motion.div
                 className="mt-16"
@@ -516,27 +516,112 @@ export function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
                   ))}
                 </div>
 
-                {/* Filmstrip */}
-                <div className="flex gap-2.5 mt-4 overflow-x-auto pb-1">
-                  {gallery.map((img, i) => (
-                    <motion.button
-                      key={i}
-                      onClick={() => setSlide([i, i > idx ? 1 : -1])}
-                      className="relative shrink-0 rounded-xl overflow-hidden"
-                      style={{ width: 92, height: 60 }}
-                      animate={{
-                        opacity: idx === i ? 1 : 0.27,
-                        scale: idx === i ? 1.05 : 0.94,
-                        boxShadow: idx === i
-                          ? `0 0 0 2px ${dotColor}, 0 0 20px ${dotColor}55`
-                          : '0 0 0 1px rgba(255,255,255,0.07)',
-                      }}
-                      whileHover={{ opacity: 0.75, scale: 1 }}
-                      transition={{ duration: 0.25, ease: [0.25, 0.46, 0.45, 0.94] }}
-                    >
-                      <img src={img} alt="" className="w-full h-full object-cover" />
-                    </motion.button>
-                  ))}
+                {/* Gallery spread — perspective fan */}
+                <div className="mt-8">
+                  <div className="text-center mb-5">
+                    <span className={`text-[9px] font-bold uppercase tracking-[0.25em] ${colors.text} opacity-70`}>
+                      {language === 'en' ? 'Gallery' : 'Galerie'}
+                    </span>
+                  </div>
+                  <div
+                    className="flex items-end justify-center"
+                    style={{ perspective: '900px', paddingBottom: '8px' }}
+                  >
+                    {gallery.map((img, i) => {
+                      const mid = (gallery.length - 1) / 2;
+                      const offset = i - mid;
+                      const rotateY = offset * (gallery.length <= 4 ? 10 : 6);
+                      const isActive = i === idx;
+                      return (
+                        <motion.button
+                          key={i}
+                          className="relative shrink-0 rounded-xl overflow-hidden focus:outline-none"
+                          style={{
+                            width: 108,
+                            height: 72,
+                            marginLeft: i > 0 ? -6 : 0,
+                          }}
+                          animate={{
+                            rotateY,
+                            scale: isActive ? 1.12 : 1 - Math.abs(offset) * 0.03,
+                            opacity: isActive ? 1 : 0.45 + (1 - Math.min(Math.abs(offset), 2) / 3) * 0.35,
+                            zIndex: isActive ? 20 : 10 - Math.abs(Math.round(offset)),
+                            boxShadow: isActive
+                              ? `0 0 0 2px ${dotColor}, 0 8px 28px rgba(0,0,0,0.65), 0 0 18px ${dotColor}55`
+                              : `0 0 0 1px rgba(255,255,255,0.08), 0 4px 14px rgba(0,0,0,0.5)`,
+                          }}
+                          whileHover={{
+                            scale: isActive ? 1.14 : 1.06,
+                            rotateY: rotateY * 0.15,
+                            opacity: 0.95,
+                            zIndex: 25,
+                          }}
+                          transition={{ duration: 0.32, ease: [0.25, 0.46, 0.45, 0.94] }}
+                          onClick={() => setSlide([i, i > idx ? 1 : -1])}
+                          aria-label={`Image ${i + 1}`}
+                        >
+                          <img
+                            src={img}
+                            alt=""
+                            className="w-full h-full object-cover pointer-events-none"
+                            draggable={false}
+                            onError={(e) => { (e.currentTarget as HTMLImageElement).src = 'https://images.unsplash.com/photo-1461749280684-ddefd3b3e3f7?w=200&h=130&fit=crop'; }}
+                          />
+                        </motion.button>
+                      );
+                    })}
+                  </div>
+                </div>
+              </motion.div>
+            )}
+
+            {/* ── Section galerie spread — toujours visible ── */}
+            {!multi && (
+              <motion.div
+                className="mt-16"
+                initial={{ opacity: 0, y: 24 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.45, duration: 0.55 }}
+              >
+                <div className="flex items-center gap-3 mb-8">
+                  <span className={`text-[10px] font-bold uppercase tracking-[0.22em] ${colors.text}`}>
+                    {language === 'en' ? 'Gallery' : 'Galerie'}
+                  </span>
+                  <div className="flex-1 h-px bg-gradient-to-r from-white/10 to-transparent" />
+                </div>
+                <div
+                  className="flex items-end justify-center"
+                  style={{ perspective: '900px', paddingBottom: '8px' }}
+                >
+                  {gallery.map((img, i) => {
+                    const mid = (gallery.length - 1) / 2;
+                    const offset = i - mid;
+                    const rotateY = offset * 10;
+                    const isActive = i === idx;
+                    return (
+                      <motion.div
+                        key={i}
+                        className="relative shrink-0 rounded-xl overflow-hidden"
+                        style={{
+                          width: 200,
+                          height: 133,
+                          marginLeft: i > 0 ? -8 : 0,
+                          boxShadow: `0 0 0 1px rgba(255,255,255,0.08), 0 8px 32px rgba(0,0,0,0.6), 0 0 20px ${dotColor}33`,
+                          rotateY,
+                          zIndex: isActive ? 10 : 10 - Math.abs(Math.round(offset)),
+                        }}
+                        animate={{ rotateY }}
+                      >
+                        <img
+                          src={img}
+                          alt=""
+                          className="w-full h-full object-cover"
+                          draggable={false}
+                          onError={(e) => { (e.currentTarget as HTMLImageElement).src = 'https://images.unsplash.com/photo-1461749280684-ddefd3b3e3f7?w=400&h=270&fit=crop'; }}
+                        />
+                      </motion.div>
+                    );
+                  })}
                 </div>
               </motion.div>
             )}
