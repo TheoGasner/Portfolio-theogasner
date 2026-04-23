@@ -117,7 +117,15 @@
     "category": "Campagne Digitale",
     "description": "Stratégie de communication digitale, création de contenu et animation de communauté pour BSK Esport, une structure active sur plusieurs jeux compétitifs.",
     "image": "/assets/images/projects/bsk-esport.png",
-    "images": ["/assets/images/projects/bsk-esport.png", "https://picsum.photos/seed/bsk-b/800/450", "https://picsum.photos/seed/bsk-c/800/450"],
+    "images": [
+      "/assets/images/projects/bsk-esport.png",
+      "/assets/images/projects/bsk-esport-1.png",
+      "/assets/images/projects/bsk-esport-2.png",
+      "/assets/images/projects/bsk-esport-3.png",
+      "/assets/images/projects/bsk-esport-4.png",
+      "/assets/images/projects/bsk-esport-5.png",
+      "/assets/images/projects/bsk-esport-6.png"
+    ],
     "summary": "Prise en charge complète de la communication digitale de BSK Esport, une structure active sur Valorant, League of Legends et FIFA. La mission couvrait la stratégie de contenu, la création de visuels, le montage vidéo, la gestion des réseaux sociaux et l'animation de la communauté. L'enjeu était de fédérer des communautés issues de jeux différents sous une image de marque cohérente et de renforcer progressivement la visibilité et l'engagement de la structure.",
     "concept": "Construire une image de marque cohérente et engageante en s'appuyant sur la proximité et l'authenticité. La stratégie reposait sur une ligne éditoriale claire : annonces de matchs, résultats, contenus behind-the-scenes et highlights de gameplays. Chaque contenu était pensé pour renforcer l'identité de la structure tout en créant du lien avec la communauté.",
     "objectives": "Structurer la communication digitale de BSK Esport. Unifier les communautés des différents jeux sous une identité commune. Améliorer la régularité et la cohérence des publications. Renforcer l'engagement et la visibilité de la structure sur les réseaux sociaux.",
