@@ -80,7 +80,8 @@ export function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
   useEffect(() => { setSlide([0, 0]); }, [project?.id]);
 
   useEffect(() => {
-    const galleryLen = (project?.images?.length ?? 0) > 0 ? project!.images!.length : 1;
+    const allLen = (project?.images?.length ?? 0) > 0 ? project!.images!.length : 1;
+    const galleryLen = allLen > 2 ? allLen - 2 : 1;
     const onKey = (e: KeyboardEvent) => {
       if (!isOpen) return;
       if (e.key === 'Escape') { onClose(); return; }
@@ -95,7 +96,10 @@ export function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
   if (!project) return null;
 
   const p = language === 'en' ? { ...project, ...project.en } : project;
-  const gallery = project.images && project.images.length > 0 ? project.images : [project.image];
+  const allImages = project.images && project.images.length > 0 ? project.images : [project.image];
+  // Les 2 premières images sont réservées aux carrés éditoriaux, le reste va dans la galerie
+  const editorialImages = allImages.slice(0, 2);
+  const gallery = allImages.length > 2 ? allImages.slice(2) : allImages.slice(0, 1);
   const colors = COLOR_MAP[project.category] ?? FALLBACK_COLORS;
   const dotColor = DOT_COLORS[project.category] ?? FALLBACK_DOT;
   const multi = gallery.length > 1;
@@ -288,7 +292,7 @@ export function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
                 <div className="flex flex-col">
                   {sections.map((section, i) => {
                     const pattern = getPattern(i, sections.length);
-                    const img = gallery[i % gallery.length];
+                    const img = editorialImages[i % editorialImages.length];
                     const hasBorder = i < sections.length - 1;
 
                     return (
