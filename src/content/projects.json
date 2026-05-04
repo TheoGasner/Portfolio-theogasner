@@ -7,8 +7,12 @@
     "image": "/assets/images/projects/onii.png",
     "images": [
       "/assets/images/projects/onii.png",
-      "https://picsum.photos/seed/onii-b/800/450",
-      "https://picsum.photos/seed/onii-c/800/450"
+      "/assets/images/projects/onii-1.png",
+      "/assets/images/projects/onii-2.png",
+      "/assets/images/projects/onii-3.png",
+      "/assets/images/projects/onii-4.png",
+      "/assets/images/projects/onii-5.png",
+      "/assets/images/projects/onii-6.png"
     ],
     "summary": "Projet réalisé dans le cadre du BUT MMI, visant à concevoir une stratégie de communication complète pour une application mobile dédiée aux rêves. ONII permet aux utilisateurs de noter, analyser et explorer leurs rêves à travers une expérience personnelle et immersive. L'objectif était de structurer une stratégie cohérente autour de cet univers, en définissant un positionnement clair, une identité visuelle forte et des supports adaptés à une cible jeune et connectée.",
     "concept": "Le concept repose sur l'idée d'un espace personnel onirique. L'identité visuelle s'inspire de l'univers de la nuit et du rêve : palette sombre et immersive (violet, bleu nuit, dégradés), éléments symboliques (lune, étoiles, paysages abstraits) et interface pensée comme un espace intime et apaisant. L'objectif était de créer une expérience rassurante et immersive, invitant l'utilisateur à explorer son monde intérieur.",
@@ -37,8 +41,13 @@
     "image": "/assets/images/projects/offf-festival.png",
     "images": [
       "/assets/images/projects/offf-festival.png",
-      "https://picsum.photos/seed/offf-b/800/450",
-      "https://picsum.photos/seed/offf-c/800/450"
+      "/assets/images/projects/offf-festival-1.png",
+      "/assets/images/projects/offf-festival-2.png",
+      "/assets/images/projects/offf-festival-3.png",
+      "/assets/images/projects/offf-festival-4.png",
+      "/assets/images/projects/offf-festival-5.png",
+      "/assets/images/projects/offf-festival-6.png",
+      "/assets/images/projects/offf-festival-7.png"
     ],
     "summary": "Projet de branding et direction artistique pour le festival OFFF 2026, réalisé en binôme dans le cadre du BUT MMI autour d'un appel d'offre fictif. Le projet s'est construit en plusieurs étapes : benchmark approfondi de festivals internationaux (Cannes Lions, Design Indaba, Edinburgh Fringe), analyse de leurs stratégies, puis définition d'un territoire de marque propre. Cette approche a permis de concevoir une identité forte, différenciante et pensée comme une expérience globale — à la fois visuelle, spatiale et digitale.",
     "concept": "Le concept s'inspire de l'univers architectural d'Antoni Gaudí : formes organiques, structures dynamiques et esthétique immersive qui casse les codes graphiques traditionnels. L'objectif était de proposer une identité vivante, presque spatiale, capable de se déployer dans l'environnement physique du festival comme dans ses supports digitaux. OFFF devient ainsi non seulement un événement, mais une expérience à part entière.",
@@ -65,7 +74,16 @@
     "category": "Design Visuel",
     "description": "Refonte UX/UI de la plateforme éditoriale de Reworld Media pour améliorer la lisibilité, la fluidité de navigation et la hiérarchie de l'information.",
     "image": "/assets/images/projects/reworld.png",
-    "images": ["/assets/images/projects/reworld.png", "https://picsum.photos/seed/reworld-b/800/450", "https://picsum.photos/seed/reworld-c/800/450"],
+    "images": [
+      "/assets/images/projects/reworld.png",
+      "/assets/images/projects/reworld-1.png",
+      "/assets/images/projects/reworld-2.png",
+      "/assets/images/projects/reworld-3.png",
+      "/assets/images/projects/reworld-4.png",
+      "/assets/images/projects/reworld-5.png",
+      "/assets/images/projects/reworld-6.png",
+      "/assets/images/projects/reworld-7.png"
+    ],
     "summary": "Projet de refonte UX/UI réalisé dans un cadre académique autour de la plateforme de Reworld Media, groupe français regroupant plusieurs titres presse (Grazia, Marie Claire, Auto Moto…). L'existant souffrait d'une navigation complexe, d'une surcharge visuelle et d'une hiérarchie de l'information peu claire. Le travail consistait à repenser l'expérience utilisateur de A à Z : analyse de l'existant, restructuration des parcours, conception des maquettes et mise en place d'un système de design cohérent.",
     "concept": "L'approche centrée utilisateur a guidé chaque décision. Simplification radicale de la hiérarchie visuelle, réduction du bruit informationnel et mise en avant du contenu éditorial. L'objectif : une interface lisible, moderne et adaptable aux différentes identités des magazines du groupe.",
     "objectives": "Améliorer la clarté et la lisibilité de la plateforme. Simplifier les parcours utilisateurs et réduire la friction à la navigation. Concevoir un système de composants cohérent et réutilisable. Garantir une expérience fluide sur mobile comme sur desktop.",
@@ -91,7 +109,15 @@
     "category": "Web Design",
     "description": "Conception UX/UI et design d'un site web pour Home of Champions, la salle esport universitaire du campus Nord Franche-Comté dédiée aux joueurs étudiants.",
     "image": "/assets/images/projects/home-of-champions.png",
-    "images": ["/assets/images/projects/home-of-champions.png", "https://picsum.photos/seed/hoc-b/800/450", "https://picsum.photos/seed/hoc-c/800/450"],
+    "images": [
+      "/assets/images/projects/home-of-champions.png",
+      "/assets/images/projects/home-of-champions-1.png",
+      "/assets/images/projects/home-of-champions-2.png",
+      "/assets/images/projects/home-of-champions-3.png",
+      "/assets/images/projects/home-of-champions-4.png",
+      "/assets/images/projects/home-of-champions-5.png",
+      "/assets/images/projects/home-of-champions-6.png"
+    ],
     "summary": "Projet de conception UX/UI et de design web pour Home of Champions, une salle esport universitaire implantée à l'IUT MMI de Montbéliard. Le projet s'inscrit dans une démarche de communication plus large visant à créer une identité forte, attirer les étudiants et construire une communauté engagée autour de la pratique de l'esport. Le site web constitue la vitrine numérique du lieu, pensé pour refléter l'univers gaming tout en facilitant l'accès aux informations clés.",
     "concept": "Créer une expérience web immersive et dynamique en phase avec les codes visuels du gaming. L'interface devait être impactante dès la homepage, avec une hiérarchie claire des contenus et une navigation fluide. L'identité visuelle s'appuie sur un univers sombre, typographié, adapté à une audience d'étudiants gamers.",
     "objectives": "Valoriser l'espace et les activités proposées par la salle. Faciliter l'accès aux informations (tournois, événements, actualités). Créer une identité visuelle cohérente avec l'univers esport. Inciter les étudiants à participer et à rejoindre la communauté.",
@@ -151,7 +177,15 @@
     "category": "Développement Web",
     "description": "Refonte complète du site web d'Haroun Animation, une entreprise événementielle, pour moderniser son image et améliorer l'expérience utilisateur.",
     "image": "/assets/images/projects/haroun-animation.png",
-    "images": ["/assets/images/projects/haroun-animation.png", "https://picsum.photos/seed/haroun-b/800/450", "https://picsum.photos/seed/haroun-c/800/450"],
+    "images": [
+      "/assets/images/projects/haroun-animation.png",
+      "/assets/images/projects/haroun-animation-1.png",
+      "/assets/images/projects/haroun-animation-2.png",
+      "/assets/images/projects/haroun-animation-3.png",
+      "/assets/images/projects/haroun-animation-4.png",
+      "/assets/images/projects/haroun-animation-5.png",
+      "/assets/images/projects/haroun-animation-6.png"
+    ],
     "summary": "Projet réalisé en stage au sein d'Haroun Animation, une entreprise événementielle proposant des animations (photobooth, VR, structures…). Le site existant, vieillissant et peu optimisé pour le mobile, nuisait à la crédibilité commerciale de l'entreprise. La mission consistait à refontre entièrement le site WordPress : restructuration des pages, optimisation responsive, amélioration des performances et mise en place d'une hiérarchie claire des contenus.",
     "concept": "Laisser l'offre parler d'elle-même. Le design s'appuie sur une structure épurée, une hiérarchie claire et des sections bien définies pour chaque prestation. L'objectif était de créer un site professionnel, facilement lisible et adapté aux décisions d'achat rapides, particulièrement sur mobile.",
     "objectives": "Moderniser l'image de l'entreprise avec un site professionnel. Simplifier la navigation et la lecture de l'offre. Optimiser les performances et l'expérience mobile. Augmenter la crédibilité commerciale et inciter aux prises de contact.",
@@ -179,8 +213,12 @@
     "image": "/assets/images/projects/chocolart.png",
     "images": [
       "/assets/images/projects/chocolart.png",
-      "https://picsum.photos/seed/choc-b/800/450",
-      "https://picsum.photos/seed/choc-c/800/450"
+      "/assets/images/projects/chocolart-1.png",
+      "/assets/images/projects/chocolart-2.png",
+      "/assets/images/projects/chocolart-3.png",
+      "/assets/images/projects/chocolart-4.png",
+      "/assets/images/projects/chocolart-5.png",
+      "/assets/images/projects/chocolart-6.png"
     ],
     "summary": "Chocolart est un projet regroupant différentes créations graphiques produites dans des contextes variés : événements, projets clients, travaux universitaires et créations personnelles. Les visuels couvrent plusieurs secteurs — événementiel, culturel, institutionnel et marques — et illustrent une capacité d'adaptation à des briefs et des contraintes très différentes. Chaque production part d'une intention narrative ou esthétique claire, traduite en un visuel immédiatement lisible et mémorable.",
     "concept": "Chaque création part d'une réflexion sur la tension visuelle entre lisibilité et impact. L'enjeu est toujours de trouver le bon équilibre entre hiérarchie typographique, composition et narration visuelle. Qu'il s'agisse d'une affiche événementielle ou d'un visuel de marque, le but est de produire quelque chose qui frappe au premier regard et laisse une trace.",
@@ -207,7 +245,15 @@
     "category": "Communication Intégrée",
     "description": "Production de contenus pédagogiques et communication institutionnelle en alternance au Pôle Véhicule du Futur, un centre d'innovation dédié aux mobilités de demain.",
     "image": "/assets/images/projects/cymove.png",
-    "images": ["/assets/images/projects/cymove.png", "https://picsum.photos/seed/cymove-b/800/450", "https://picsum.photos/seed/cymove-c/800/450"],
+    "images": [
+      "/assets/images/projects/cymove.png",
+      "/assets/images/projects/cymove-1.png",
+      "/assets/images/projects/cymove-2.png",
+      "/assets/images/projects/cymove-3.png",
+      "/assets/images/projects/cymove-4.png",
+      "/assets/images/projects/cymove-5.png",
+      "/assets/images/projects/cymove-6.png"
+    ],
     "summary": "Projet réalisé en alternance au Pôle Véhicule du Futur, un centre d'innovation regroupant industriels, laboratoires de recherche et collectivités autour des mobilités de demain. La mission consistait à produire des contenus pédagogiques vidéo et des communications institutionnelles sur des thématiques techniques : véhicule électrique, hydrogène, cybersécurité et ADAS. L'enjeu était de vulgariser des sujets complexes pour les rendre accessibles et engageants pour des audiences variées.",
     "concept": "Vulgariser sans simplifier à l'excès. Chaque contenu vidéo était pensé pour traduire un sujet technique en format engageant et accessible, tout en conservant la rigueur attendue d'une communication institutionnelle. La ligne éditoriale s'appuyait sur des formats courts, dynamiques et visuellement structurés.",
     "objectives": "Produire des capsules vidéo pédagogiques sur des sujets techniques complexes. Créer des templates visuels B2B réutilisables. Structurer une ligne éditoriale adaptée aux enjeux institutionnels. Contribuer à la stratégie de communication du Pôle.",
@@ -235,8 +281,12 @@
     "image": "/assets/images/projects/double-expo.png",
     "images": [
       "/assets/images/projects/double-expo.png",
-      "https://picsum.photos/seed/dexp-b/800/450",
-      "https://picsum.photos/seed/dexp-c/800/450"
+      "/assets/images/projects/double-expo-1.png",
+      "/assets/images/projects/double-expo-2.png",
+      "/assets/images/projects/double-expo-3.png",
+      "/assets/images/projects/double-expo-4.png",
+      "/assets/images/projects/double-expo-5.png",
+      "/assets/images/projects/double-expo-6.png"
     ],
     "summary": "Projet artistique personnel basé sur la technique de la double exposition. Le visuel superpose un portrait humain en profil à un paysage urbain pour créer une image narrative, fonctionnant sans texte. Le projet illustre ma démarche créative : partir d'une intention émotionnelle, construire un concept visuel fort, puis l'exécuter avec précision. Chaque décision — cadrage, contraste, fusion des couches — a été pensée pour raconter une histoire à travers la seule composition.",
     "concept": "Superposer deux univers en apparente opposition — la singularité d'un visage et la densité d'un espace urbain — pour créer une tension visuelle porteuse de sens. La double exposition devient un outil narratif : elle n'efface pas les deux images, elle les fusionne pour en créer une troisième, plus riche et plus ambiguë. L'identité et l'environnement ne s'opposent plus, ils se lisent ensemble.",

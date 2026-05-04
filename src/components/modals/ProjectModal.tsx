@@ -81,7 +81,7 @@ export function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
 
   useEffect(() => {
     const allLen = (project?.images?.length ?? 0) > 0 ? project!.images!.length : 1;
-    const galleryLen = allLen > 2 ? allLen - 2 : 1;
+    const galleryLen = allLen > 3 ? allLen - 3 : 1;
     const onKey = (e: KeyboardEvent) => {
       if (!isOpen) return;
       if (e.key === 'Escape') { onClose(); return; }
@@ -97,9 +97,9 @@ export function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
 
   const p = language === 'en' ? { ...project, ...project.en } : project;
   const allImages = project.images && project.images.length > 0 ? project.images : [project.image];
-  // Les 2 premières images sont réservées aux carrés éditoriaux, le reste va dans la galerie
-  const editorialImages = allImages.slice(0, 2);
-  const gallery = allImages.length > 2 ? allImages.slice(2) : allImages.slice(0, 1);
+  // images[0] = cover (déjà utilisé en hero), images[1-2] = éditoriaux, images[3+] = galerie
+  const editorialImages = allImages.length > 1 ? allImages.slice(1, 3) : allImages.slice(0, 1);
+  const gallery = allImages.length > 3 ? allImages.slice(3) : allImages.slice(1, 2);
   const colors = COLOR_MAP[project.category] ?? FALLBACK_COLORS;
   const dotColor = DOT_COLORS[project.category] ?? FALLBACK_DOT;
   const multi = gallery.length > 1;
@@ -288,11 +288,21 @@ export function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
                 </div>
               );
 
+              // Pré-calcul des images : on n'incrémente que pour les patterns qui affichent une image
+              let imgCounter = 0;
+              const sectionImages = sections.map((_, i) => {
+                const pat = getPattern(i, sections.length);
+                if (pat === 'left' || pat === 'right') {
+                  return editorialImages[imgCounter++ % editorialImages.length];
+                }
+                return null;
+              });
+
               return (
                 <div className="flex flex-col">
                   {sections.map((section, i) => {
                     const pattern = getPattern(i, sections.length);
-                    const img = editorialImages[i % editorialImages.length];
+                    const img = sectionImages[i] ?? '';
                     const hasBorder = i < sections.length - 1;
 
                     return (
@@ -398,7 +408,7 @@ export function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
                   {/* Cadre principal */}
                   <div
                     className="relative rounded-2xl overflow-hidden select-none"
-                    style={{ aspectRatio: '16/9', zIndex: 1, boxShadow: `0 0 0 1px rgba(255,255,255,0.07), 0 25px 60px rgba(0,0,0,0.7), 0 0 80px ${dotColor}22` }}
+                    style={{ aspectRatio: '1200 / 680', zIndex: 1, boxShadow: `0 0 0 1px rgba(255,255,255,0.07), 0 25px 60px rgba(0,0,0,0.7), 0 0 80px ${dotColor}22` }}
                   >
                     {/* Barre de progression */}
                     <div className="absolute inset-x-0 top-0 h-[2px] z-30 pointer-events-none" style={{ background: 'rgba(255,255,255,0.06)' }}>
@@ -421,13 +431,10 @@ export function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
                         transition={slideTx}
                         className="absolute inset-0"
                       >
-                        <motion.img
+                        <img
                           src={gallery[idx]}
                           alt={`${project.title} — visuel ${idx + 1}`}
                           className="w-full h-full object-cover"
-                          initial={{ scale: 1.06 }}
-                          animate={{ scale: 1 }}
-                          transition={{ duration: 7, ease: 'linear' }}
                           onError={(e) => { (e.currentTarget as HTMLImageElement).src = 'https://images.unsplash.com/photo-1461749280684-ddefd3b3e3f7?w=1200&h=700&fit=crop'; }}
                         />
                       </motion.div>
