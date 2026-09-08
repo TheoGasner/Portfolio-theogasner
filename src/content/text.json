@@ -12,7 +12,7 @@
     "about": {
       "title": "À propos",
       "imageAlt": "Portrait de Théo Gasner",
-      "bio": "Je m'appelle Théo Gasner, étudiant en troisième année de BUT Métier du Multimédia et de l'Internet (MMI). J'aime créer des visuels, imaginer des concepts et donner vie à des idées à travers le web. Je suis particulièrement attiré par tout ce qui touche à l'univers digital, les jeux vidéo et les nouvelles technologies comme l'IA.\nJ'aime comprendre comment capter l'attention, transmettre un message et créer des expériences qui marquent. Aujourd'hui, je développe mes compétences entre stratégie, création visuelle et projets concrets.",
+      "bio": "Je m'appelle Théo Gasner. Après avoir terminé mon BUT Métiers du Multimédia et de l'Internet (MMI) à Montbéliard, je suis aujourd'hui étudiant en 4e année à l'ISCOM Lyon, dans la formation Manager de la Communication, spécialisation Communication & Marketing Digital. J'aime créer des visuels, imaginer des concepts et donner vie à des idées à travers le web. Je suis particulièrement attiré par le marketing digital, la communication B2B, les nouvelles technologies et l'intelligence artificielle.\nJ'aime comprendre comment capter l'attention, transmettre un message et créer des expériences qui marquent. En parallèle de ma formation, je développe ces compétences chez Hermitage Solutions en tant qu'Assistant Marketing.",
       "domains": "Domaines d'expertise & Passions",
       "skills": ["Stratégie de Communication", "Marketing Digital", "Design Visuel", "Branding", "Web Design", "Création de Contenu"],
       "interests": ["IA et Technologie", "Jeux Vidéo", "Nature et Aventure", "Sensation Forte", "Sport et Design"],
@@ -31,8 +31,13 @@
         },
         {
           "date": "2023 - 2026",
-          "title": "BUT Métier du Multimédia et de l'Internet (MMI)",
-          "description": "Stratégie de Communication Numérique et Design d'Expérience"
+          "title": "BUT Métiers du Multimédia et de l'Internet (MMI)",
+          "description": "Formation terminée à Montbéliard - Stratégie de communication numérique et design d'expérience"
+        },
+        {
+          "date": "2026 - 2028",
+          "title": "ISCOM Lyon - Manager de la Communication",
+          "description": "4e année, spécialisation Communication & Marketing Digital"
         },
         {
           "date": "2023 - 2024",
@@ -46,8 +51,13 @@
         },
         {
           "date": "Sept 2025 - Août 2026",
-          "title": "Alternance - Pôle Véhicule du Futur",
-          "description": "Chargé de Communication à Etupes - Gestion de projets, contenu pédagogique, vidéos et supports graphiques"
+          "title": "Alternance - Pôle Véhicule du Futur / 4hFactory",
+          "description": "Chargé de Communication à Étupes - Gestion de projets, contenu pédagogique, vidéos et supports graphiques"
+        },
+        {
+          "date": "Depuis Sept 2026",
+          "title": "Alternance - Hermitage Solutions",
+          "description": "Assistant Marketing à Lyon - Marketing digital, communication B2B, contenu, campagnes, LinkedIn, webinaires, SEO et automatisation avec l'IA"
         }
       ]
     },
@@ -87,7 +97,7 @@
     "about": {
       "title": "About",
       "imageAlt": "Portrait of Théo Gasner",
-      "bio": "I'm Théo Gasner, a creative passionate about communication strategy and digital design. As a student in communication, marketing and digital design, I'm building expertise at the intersection of strategy, impactful visuals, and innovative web experiences. My approach combines strong strategic vision with keen creative sensitivity, always guided by the goal of creating messages that resonate and captivate.",
+      "bio": "I'm Théo Gasner. After completing my BUT in Multimedia and Internet Professions (MMI) in Montbéliard, I am now a fourth-year student at ISCOM Lyon in the Communication Manager program, specializing in Communication & Digital Marketing. I enjoy creating visuals, imagining concepts and bringing ideas to life through the web. I am particularly interested in digital marketing, B2B communication, new technologies and artificial intelligence.\nI like understanding how to capture attention, convey a message and create experiences that resonate. Alongside my studies, I am developing these skills at Hermitage Solutions as a Marketing Assistant.",
       "domains": "Areas of Expertise & Passions",
       "skills": ["Communication Strategy", "Digital Marketing", "Visual Design", "Branding", "Web Design", "Content Creation"],
       "interests": ["AI & Technology", "Video Games", "Nature & Adventure", "Thrill Seeking", "Sport & Design"],
@@ -107,7 +117,12 @@
         {
           "date": "2023 - 2026",
           "title": "BUT MMI - Multimedia and Internet Professions",
-          "description": "Digital Communication Strategy and Experience Design"
+          "description": "Completed in Montbéliard - Digital Communication Strategy and Experience Design"
+        },
+        {
+          "date": "2026 - 2028",
+          "title": "ISCOM Lyon - Communication Manager",
+          "description": "Fourth year, specializing in Communication & Digital Marketing"
         },
         {
           "date": "2023 - 2024",
@@ -121,8 +136,13 @@
         },
         {
           "date": "Sept 2025 - Aug 2026",
-          "title": "Apprenticeship - Future Vehicle Hub",
+          "title": "Apprenticeship - Future Vehicle Hub / 4hFactory",
           "description": "Communication Manager in Etupes - Project management, educational content, videos and graphics"
+        },
+        {
+          "date": "Since Sept 2026",
+          "title": "Apprenticeship - Hermitage Solutions",
+          "description": "Marketing Assistant in Lyon - Digital marketing, B2B communication, content, campaigns, LinkedIn, webinars, web, SEO and AI-powered automation"
         }
       ]
     },

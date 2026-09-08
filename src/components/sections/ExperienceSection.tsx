@@ -55,7 +55,7 @@ export function ExperienceSection() {
             transition={{ duration: 1.2, ease: 'easeOut' }}
           />
 
-          {timeline.slice(3, 6).map((item: any, index: number) => (
+          {timeline.slice(4).map((item: any, index: number) => (
             <motion.div
               key={index}
               className="timeline-item ml-12 md:ml-0 md:w-1/2 md:even:ml-auto md:even:text-right md:even:pr-12 md:odd:pl-12 md:odd:ml-0"

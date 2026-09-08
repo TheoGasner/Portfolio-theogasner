@@ -194,7 +194,7 @@ export function AboutSection() {
           </h2>
 
           <div className="space-y-6">
-            {timeline.slice(0, 3).map((item: TimelineItem, index: number) => (
+            {timeline.slice(0, 4).map((item: TimelineItem, index: number) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, x: -20 }}

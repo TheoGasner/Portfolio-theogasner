@@ -243,7 +243,7 @@
     "id": 8,
     "title": "Cymove",
     "category": "Communication Intégrée",
-    "description": "Production de contenus pédagogiques et communication institutionnelle en alternance au Pôle Véhicule du Futur, un centre d'innovation dédié aux mobilités de demain.",
+    "description": "Production de contenus pédagogiques et communication institutionnelle lors de mon ancienne alternance au Pôle Véhicule du Futur / 4hFactory, un centre d'innovation dédié aux mobilités de demain.",
     "image": "/assets/images/projects/cymove.png",
     "images": [
       "/assets/images/projects/cymove.png",
@@ -254,22 +254,22 @@
       "/assets/images/projects/cymove-5.png",
       "/assets/images/projects/cymove-6.png"
     ],
-    "summary": "Projet réalisé en alternance au Pôle Véhicule du Futur, un centre d'innovation regroupant industriels, laboratoires de recherche et collectivités autour des mobilités de demain. La mission consistait à produire des contenus pédagogiques vidéo et des communications institutionnelles sur des thématiques techniques : véhicule électrique, hydrogène, cybersécurité et ADAS. L'enjeu était de vulgariser des sujets complexes pour les rendre accessibles et engageants pour des audiences variées.",
+    "summary": "Projet réalisé lors de mon ancienne alternance au Pôle Véhicule du Futur / 4hFactory, un centre d'innovation regroupant industriels, laboratoires de recherche et collectivités autour des mobilités de demain. La mission consistait à produire des contenus pédagogiques vidéo et des communications institutionnelles sur des thématiques techniques : véhicule électrique, hydrogène, cybersécurité et ADAS. L'enjeu était de vulgariser des sujets complexes pour les rendre accessibles et engageants pour des audiences variées.",
     "concept": "Vulgariser sans simplifier à l'excès. Chaque contenu vidéo était pensé pour traduire un sujet technique en format engageant et accessible, tout en conservant la rigueur attendue d'une communication institutionnelle. La ligne éditoriale s'appuyait sur des formats courts, dynamiques et visuellement structurés.",
     "objectives": "Produire des capsules vidéo pédagogiques sur des sujets techniques complexes. Créer des templates visuels B2B réutilisables. Structurer une ligne éditoriale adaptée aux enjeux institutionnels. Contribuer à la stratégie de communication du Pôle.",
     "context": "Le Pôle Véhicule du Futur est un cluster d'innovation regroupant industriels, laboratoires et collectivités. La communication devait être à la fois institutionnelle, pédagogique et inspirante pour des audiences allant des partenaires industriels au grand public. Le contexte exigeait une grande rigueur dans le traitement des sujets et dans la qualité de production.",
-    "role": "Chargé de communication et producteur vidéo — alternance",
+    "role": "Chargé de communication et producteur vidéo — ancienne alternance",
     "tools": ["Premiere Pro", "After Effects", "Notion", "Canva", "Adobe Illustrator"],
     "results": "12 vidéos pédagogiques produites, plus de 5 000 personnes touchées, bibliothèque d'assets réutilisables créée et validée, amélioration de la clarté et de l'accessibilité des contenus techniques",
     "link": "",
     "en": {
       "category": "Integrated Communication",
-      "description": "Educational content production and institutional communication during a work-study placement at the Future Vehicle Cluster, an innovation center dedicated to tomorrow's mobility.",
-      "summary": "Project carried out during a work-study placement at the Future Vehicle Cluster, an innovation center bringing together industrialists, research laboratories and local authorities around tomorrow's mobility. The mission involved producing educational video content and institutional communications on technical topics: electric vehicles, hydrogen, cybersecurity and ADAS. The challenge was to simplify complex subjects to make them accessible and engaging for diverse audiences.",
+      "description": "Educational content production and institutional communication during my former work-study placement at the Future Vehicle Cluster / 4hFactory, an innovation center dedicated to tomorrow's mobility.",
+      "summary": "Project carried out during my former work-study placement at the Future Vehicle Cluster / 4hFactory, an innovation center bringing together industrialists, research laboratories and local authorities around tomorrow's mobility. The mission involved producing educational video content and institutional communications on technical topics: electric vehicles, hydrogen, cybersecurity and ADAS. The challenge was to simplify complex subjects to make them accessible and engaging for diverse audiences.",
       "concept": "Simplify without oversimplifying. Each video content was designed to translate a technical subject into an engaging and accessible format, while maintaining the rigor expected from institutional communication. The editorial line relied on short, dynamic, visually structured formats.",
       "objectives": "Produce educational video capsules on complex technical subjects. Create reusable B2B visual templates. Structure an editorial line adapted to institutional challenges. Contribute to the Cluster's communication strategy.",
       "context": "The Future Vehicle Cluster is an innovation cluster bringing together industrialists, laboratories and local authorities. Communication had to be simultaneously institutional, educational and inspiring for audiences ranging from industrial partners to the general public. The context demanded high rigor in subject treatment and production quality.",
-      "role": "Communication officer and video producer — work-study",
+      "role": "Communication officer and video producer — former work-study placement",
       "results": "12 educational videos produced, over 5,000 people reached, reusable asset library created and validated, improved clarity and accessibility of technical content"
     }
   },
